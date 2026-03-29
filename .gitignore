@@ -1,0 +1,26 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# IDE / Editor
+.claude/
+
+# Excel temp files
+~$*.xlsx
+
+# OS artifacts
+nul
+Thumbs.db
+
+# Model files (large binaries)
+*.keras
+*.pkl
+solar_lstm_sim/models/model_history/
+solar_lstm_xlsx/models/
