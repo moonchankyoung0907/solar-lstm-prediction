@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LSTM 태양광 발전량 예측</title>
+  <style>
+    :root {
+      --primary: #f59e0b;
+      --primary-dark: #d97706;
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card2: #263348;
+      --border: #334155;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --green: #22c55e;
+      --red: #ef4444;
+      --blue: #38bdf8;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 32px 16px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      color: var(--muted);
+      margin-top: 6px;
+      font-size: 0.9rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      max-width: 900px;
+      margin: 0 auto 28px auto;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* 입력 폼 */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .form-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      padding: 10px 12px;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-bottom: 20px;
+    }
+
+    .hint span { color: var(--primary); }
+
+    .btn-predict {
+      width: 100%;
+      padding: 12px;
+      background: var(--primary);
+      color: #000;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-predict:hover { background: var(--primary-dark); }
+
+    /* 에러 */
+    .alert-error {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+
+    /* 결과 요약 */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 600px) {
+      .summary-grid { grid-template-columns: repeat(1, 1fr); }
+    }
+
+    .stat-card {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      text-align: center;
+    }
+
+    .stat-card .label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .stat-card .value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .stat-card .unit {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-left: 2px;
+    }
+
+    /* 테이블 */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    thead th {
+      background: var(--card2);
+      padding: 12px 14px;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--card2); }
+
+    tbody td {
+      padding: 11px 14px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    td.hour-col { color: var(--primary); font-weight: 700; }
+    td.time-col { color: var(--muted); font-size: 0.82rem; }
+    td.pred-col { color: var(--blue); font-weight: 600; }
+    td.ci-col   { color: var(--muted); font-size: 0.82rem; }
+
+    .mape-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .mape-good { background: rgba(34, 197, 94, 0.15); color: var(--green); }
+    .mape-mid  { background: rgba(245, 158, 11, 0.15); color: var(--primary); }
+    .mape-bad  { background: rgba(239, 68, 68, 0.15); color: var(--red); }
+    .mape-na   { color: var(--muted); font-size: 0.8rem; }
+
+    .overall-mape {
+      text-align: right;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .overall-mape strong { color: var(--primary); }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>☀ LSTM 태양광 발전량 예측</h1>
+  <p>년월일시를 입력하면 이후 10시간의 발전량을 예측합니다</p>
+</header>
+
+<!-- 입력 폼 -->
+<div class="card">
+  <h2>📅 예측 기준 시각 입력</h2>
+
+  {% if error %}
+  <div class="alert-error">⚠ {{ error }}</div>
+  {% endif %}
+
+  <form method="POST">
+    <div class="form-grid">
+      <div class="form-group">
+        <label>년 (Year)</label>
+        <input type="number" name="year" min="2000" max="2100"
+               value="{{ form_values.year }}" placeholder="2026" required />
+      </div>
+      <div class="form-group">
+        <label>월 (Month)</label>
+        <input type="number" name="month" min="1" max="12"
+               value="{{ form_values.month }}" placeholder="3" required />
+      </div>
+      <div class="form-group">
+        <label>일 (Day)</label>
+        <input type="number" name="day" min="1" max="31"
+               value="{{ form_values.day }}" placeholder="14" required />
+      </div>
+      <div class="form-group">
+        <label>시 (Hour, 0~23)</label>
+        <input type="number" name="hour" min="0" max="23"
+               value="{{ form_values.hour }}" placeholder="12" required />
+      </div>
+    </div>
+
+    <p class="hint">
+      사용 가능한 데이터 범위: <span>{{ date_min }} ~ {{ date_max }}</span>
+    </p>
+
+    <button type="submit" class="btn-predict">🔍 10시간 발전량 예측</button>
+  </form>
+</div>
+
+<!-- 결과 -->
+{% if result %}
+<div class="card">
+  <h2>📊 예측 결과 — 기준 시각: {{ result.base_time }}</h2>
+
+  <!-- 요약 통계 -->
+  <div class="summary-grid">
+    <div class="stat-card">
+      <div class="label">총 예측 발전량</div>
+      <div class="value">
+        {{ "%.1f"|format(result.rows | map(attribute='predicted') | sum) }}
+        <span class="unit">kWh</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="label">총 실측 발전량</div>
+      {% set actual_sum = result.rows | selectattr('actual', 'ne', None) | map(attribute='actual') | sum %}
+      {% set actual_count = result.rows | selectattr('actual', 'ne', None) | list | length %}
+      <div class="value">
+        {% if actual_count > 0 %}
+          {{ "%.1f"|format(actual_sum) }}<span class="unit">kWh</span>
+        {% else %}
+          <span style="font-size:1rem;color:var(--muted)">데이터 없음</span>
+        {% endif %}
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="label">평균 MAPE</div>
+      <div class="value">
+        {% if result.overall_mape is not none %}
+          {{ result.overall_mape }}<span class="unit">%</span>
+        {% else %}
+          <span style="font-size:1rem;color:var(--muted)">야간 구간</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- 상세 테이블 -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>구간</th>
+          <th>예측 시각</th>
+          <th>예측값 (kW)</th>
+          <th>신뢰구간 (kW)</th>
+          <th>실측값 (kW)</th>
+          <th>절대 오차 (kW)</th>
+          <th>MAPE (%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in result.rows %}
+        <tr>
+          <td class="hour-col">{{ row.hour }}</td>
+          <td class="time-col">{{ row.target_time }}</td>
+          <td class="pred-col">{{ row.predicted }}</td>
+          <td class="ci-col">{{ row.lower }} ~ {{ row.upper }}</td>
+          <td>
+            {% if row.actual is not none %}
+              {{ row.actual }}
+            {% else %}
+              <span class="mape-na">—</span>
+            {% endif %}
+          </td>
+          <td>
+            {% if row.abs_err is not none %}
+              {{ row.abs_err }}
+            {% else %}
+              <span class="mape-na">—</span>
+            {% endif %}
+          </td>
+          <td>
+            {% if row.mape is not none %}
+              {% if row.mape <= 10 %}
+                <span class="mape-badge mape-good">{{ row.mape }}%</span>
+              {% elif row.mape <= 20 %}
+                <span class="mape-badge mape-mid">{{ row.mape }}%</span>
+              {% else %}
+                <span class="mape-badge mape-bad">{{ row.mape }}%</span>
+              {% endif %}
+            {% elif row.actual == 0 or row.actual is none %}
+              <span class="mape-na">야간</span>
+            {% else %}
+              <span class="mape-na">—</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% if result.overall_mape is not none %}
+  <div class="overall-mape">
+    주간 구간 평균 MAPE: <strong>{{ result.overall_mape }}%</strong>
+    &nbsp;|&nbsp; MAPE ≤10% <span style="color:var(--green)">●</span> 양호
+    &nbsp; 10~20% <span style="color:var(--primary)">●</span> 보통
+    &nbsp; >20% <span style="color:var(--red)">●</span> 불량
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<footer>
+  LSTM 태양광 발전량 예측 시스템 &mdash; Capstone Project 2026
+</footer>
+
+</body>
+</html>
