@@ -1,0 +1,18 @@
+2026-04-02 21:24:51,226 [INFO] fetch_solar: === Daily fetch start: 2026-04-01 ===
+2026-04-02 21:24:51,228 [INFO] fetch_solar: Building rows for 2026-04-01
+2026-04-02 21:24:52,333 [INFO] fetch_solar: Actual weather fetched for 2026-04-01 (24 hours)
+2026-04-02 21:24:53,267 [ERROR] fetch_solar: Failed to fetch forecast weather: 400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-04-01&end_date=2026-04-01&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3
+2026-04-02 21:24:53,566 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-01)
+2026-04-02 21:24:53,665 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-01)
+2026-04-02 21:24:53,665 [INFO] fetch_solar: Summary | actual=188.3 kWh  forecast=0.0 kWh  date=2026-04-01
+2026-04-02 21:24:53,665 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-02 21:25:18,799 [INFO] fetch_solar: === Daily fetch start: 2026-04-01 ===
+2026-04-02 21:25:18,799 [INFO] fetch_solar: Building rows for 2026-04-01
+2026-04-02 21:25:19,726 [INFO] fetch_solar: Actual weather fetched for 2026-04-01 (24 hours)
+2026-04-02 21:25:20,674 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-04-01&end_date=2026-04-01&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-04-02 21:25:20,675 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-01
+2026-04-02 21:25:21,638 [INFO] fetch_solar: Actual weather fetched for 2026-04-01 (24 hours)
+2026-04-02 21:25:21,854 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-01)
+2026-04-02 21:25:21,951 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-01)
+2026-04-02 21:25:21,951 [INFO] fetch_solar: Summary | actual=188.3 kWh  forecast=188.3 kWh  date=2026-04-01
+2026-04-02 21:25:21,951 [INFO] fetch_solar: === Daily fetch done ===
