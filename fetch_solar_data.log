@@ -16,3 +16,104 @@
 2026-04-02 21:25:21,951 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-01)
 2026-04-02 21:25:21,951 [INFO] fetch_solar: Summary | actual=188.3 kWh  forecast=188.3 kWh  date=2026-04-01
 2026-04-02 21:25:21,951 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-03 00:00:02,805 [INFO] fetch_solar: === Daily fetch start: 2026-04-02 ===
+2026-04-03 00:00:02,805 [INFO] fetch_solar: Building rows for 2026-04-02
+2026-04-03 00:00:03,927 [INFO] fetch_solar: Actual weather fetched for 2026-04-02 (24 hours)
+2026-04-03 00:00:04,884 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-04-02&end_date=2026-04-02&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-04-03 00:00:04,884 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-02
+2026-04-03 00:00:05,805 [INFO] fetch_solar: Actual weather fetched for 2026-04-02 (24 hours)
+2026-04-03 00:00:06,558 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-02)
+2026-04-03 00:00:06,682 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-02)
+2026-04-03 00:00:06,698 [INFO] fetch_solar: Summary | actual=495.1 kWh  forecast=495.1 kWh  date=2026-04-02
+2026-04-03 00:00:06,698 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-04 00:00:12,047 [INFO] fetch_solar: === Daily fetch start: 2026-04-03 ===
+2026-04-04 00:00:12,048 [INFO] fetch_solar: Building rows for 2026-04-03
+2026-04-04 00:00:13,044 [INFO] fetch_solar: Actual weather fetched for 2026-04-03 (24 hours)
+2026-04-04 00:00:13,980 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-04-03&end_date=2026-04-03&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-04-04 00:00:13,980 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-03
+2026-04-04 00:00:14,914 [INFO] fetch_solar: Actual weather fetched for 2026-04-03 (24 hours)
+2026-04-04 00:00:15,969 [ERROR] fetch_solar: daily_job failed: [Errno 13] Permission denied: 'C:\\Users\\3060\\Desktop\\2026-seja-capstone-project-lstm-main\\2026-seja-capstone-project-lstm-main\\log.xlsx'
+Traceback (most recent call last):
+  File "C:\Users\3060\Desktop\2026-seja-capstone-project-lstm-main\2026-seja-capstone-project-lstm-main\fetch_solar_data.py", line 340, in daily_job
+    append_to_excel(log_df,   LOG_PATH,       LOG_COLUMNS)
+  File "C:\Users\3060\Desktop\2026-seja-capstone-project-lstm-main\2026-seja-capstone-project-lstm-main\fetch_solar_data.py", line 322, in append_to_excel
+    combined.to_excel(path, index=False, engine="openpyxl")
+  File "C:\Users\3060\Desktop\2026-seja-capstone-project-lstm-main\2026-seja-capstone-project-lstm-main\.venv\Lib\site-packages\pandas\core\generic.py", line 2312, in to_excel
+    formatter.write(
+  File "C:\Users\3060\Desktop\2026-seja-capstone-project-lstm-main\2026-seja-capstone-project-lstm-main\.venv\Lib\site-packages\pandas\io\formats\excel.py", line 1003, in write
+    writer = ExcelWriter(
+             ^^^^^^^^^^^^
+  File "C:\Users\3060\Desktop\2026-seja-capstone-project-lstm-main\2026-seja-capstone-project-lstm-main\.venv\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 62, in __init__
+    super().__init__(
+  File "C:\Users\3060\Desktop\2026-seja-capstone-project-lstm-main\2026-seja-capstone-project-lstm-main\.venv\Lib\site-packages\pandas\io\excel\_base.py", line 1281, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "C:\Users\3060\Desktop\2026-seja-capstone-project-lstm-main\2026-seja-capstone-project-lstm-main\.venv\Lib\site-packages\pandas\io\common.py", line 935, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\3060\\Desktop\\2026-seja-capstone-project-lstm-main\\2026-seja-capstone-project-lstm-main\\log.xlsx'
+2026-04-04 00:00:16,068 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-05 00:00:15,715 [INFO] fetch_solar: === Daily fetch start: 2026-04-04 ===
+2026-04-05 00:00:15,715 [INFO] fetch_solar: Building rows for 2026-04-04
+2026-04-05 00:00:16,782 [INFO] fetch_solar: Actual weather fetched for 2026-04-04 (24 hours)
+2026-04-05 00:00:17,737 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-04-04&end_date=2026-04-04&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-04-05 00:00:17,737 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-04
+2026-04-05 00:00:18,689 [INFO] fetch_solar: Actual weather fetched for 2026-04-04 (24 hours)
+2026-04-05 00:00:20,225 [ERROR] fetch_solar: daily_job failed: [Errno 13] Permission denied: 'C:\\Users\\3060\\Desktop\\2026-seja-capstone-project-lstm-main\\2026-seja-capstone-project-lstm-main\\log.xlsx'
+Traceback (most recent call last):
+  File "C:\Users\3060\Desktop\2026-seja-capstone-project-lstm-main\2026-seja-capstone-project-lstm-main\fetch_solar_data.py", line 340, in daily_job
+    append_to_excel(log_df,   LOG_PATH,       LOG_COLUMNS)
+  File "C:\Users\3060\Desktop\2026-seja-capstone-project-lstm-main\2026-seja-capstone-project-lstm-main\fetch_solar_data.py", line 322, in append_to_excel
+    combined.to_excel(path, index=False, engine="openpyxl")
+  File "C:\Users\3060\Desktop\2026-seja-capstone-project-lstm-main\2026-seja-capstone-project-lstm-main\.venv\Lib\site-packages\pandas\core\generic.py", line 2312, in to_excel
+    formatter.write(
+  File "C:\Users\3060\Desktop\2026-seja-capstone-project-lstm-main\2026-seja-capstone-project-lstm-main\.venv\Lib\site-packages\pandas\io\formats\excel.py", line 1003, in write
+    writer = ExcelWriter(
+             ^^^^^^^^^^^^
+  File "C:\Users\3060\Desktop\2026-seja-capstone-project-lstm-main\2026-seja-capstone-project-lstm-main\.venv\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 62, in __init__
+    super().__init__(
+  File "C:\Users\3060\Desktop\2026-seja-capstone-project-lstm-main\2026-seja-capstone-project-lstm-main\.venv\Lib\site-packages\pandas\io\excel\_base.py", line 1281, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "C:\Users\3060\Desktop\2026-seja-capstone-project-lstm-main\2026-seja-capstone-project-lstm-main\.venv\Lib\site-packages\pandas\io\common.py", line 935, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\3060\\Desktop\\2026-seja-capstone-project-lstm-main\\2026-seja-capstone-project-lstm-main\\log.xlsx'
+2026-04-05 00:00:20,382 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-06 10:53:11,804 [INFO] fetch_solar: === Daily fetch start: 2026-04-05 ===
+2026-04-06 10:53:11,805 [INFO] fetch_solar: Building rows for 2026-04-05
+2026-04-06 10:53:12,816 [INFO] fetch_solar: Actual weather fetched for 2026-04-05 (24 hours)
+2026-04-06 10:53:13,763 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-04-05&end_date=2026-04-05&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-04-06 10:53:13,764 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-05
+2026-04-06 10:53:14,703 [INFO] fetch_solar: Actual weather fetched for 2026-04-05 (24 hours)
+2026-04-06 10:53:14,970 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-05)
+2026-04-06 10:53:15,078 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-05)
+2026-04-06 10:53:15,079 [INFO] fetch_solar: Summary | actual=477.0 kWh  forecast=477.0 kWh  date=2026-04-05
+2026-04-06 10:53:15,079 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-06 10:53:47,720 [INFO] fetch_solar: === Daily fetch start: 2026-04-04 ===
+2026-04-06 10:53:47,720 [INFO] fetch_solar: Building rows for 2026-04-04
+2026-04-06 10:53:48,660 [INFO] fetch_solar: Actual weather fetched for 2026-04-04 (24 hours)
+2026-04-06 10:53:48,661 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-04
+2026-04-06 10:53:49,574 [INFO] fetch_solar: Actual weather fetched for 2026-04-04 (24 hours)
+2026-04-06 10:53:49,780 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-04)
+2026-04-06 10:53:49,894 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-04)
+2026-04-06 10:53:49,895 [INFO] fetch_solar: Summary | actual=244.5 kWh  forecast=244.5 kWh  date=2026-04-04
+2026-04-06 10:53:49,895 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-06 10:54:08,254 [INFO] fetch_solar: === Daily fetch start: 2026-04-03 ===
+2026-04-06 10:54:08,254 [INFO] fetch_solar: Building rows for 2026-04-03
+2026-04-06 10:54:09,196 [INFO] fetch_solar: Actual weather fetched for 2026-04-03 (24 hours)
+2026-04-06 10:54:09,197 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-03
+2026-04-06 10:54:10,143 [INFO] fetch_solar: Actual weather fetched for 2026-04-03 (24 hours)
+2026-04-06 10:54:10,355 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-03)
+2026-04-06 10:54:10,485 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-03)
+2026-04-06 10:54:10,485 [INFO] fetch_solar: Summary | actual=404.9 kWh  forecast=404.9 kWh  date=2026-04-03
+2026-04-06 10:54:10,486 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-06 10:54:12,691 [INFO] fetch_solar: === Daily fetch start: 2026-04-04 ===
+2026-04-06 10:54:12,692 [INFO] fetch_solar: Building rows for 2026-04-04
+2026-04-06 10:54:13,609 [INFO] fetch_solar: Actual weather fetched for 2026-04-04 (24 hours)
+2026-04-06 10:54:13,610 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-04
+2026-04-06 10:54:14,527 [INFO] fetch_solar: Actual weather fetched for 2026-04-04 (24 hours)
+2026-04-06 10:54:14,730 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-04)
+2026-04-06 10:54:14,852 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-04)
+2026-04-06 10:54:14,853 [INFO] fetch_solar: Summary | actual=244.5 kWh  forecast=244.5 kWh  date=2026-04-04
+2026-04-06 10:54:14,853 [INFO] fetch_solar: === Daily fetch done ===
