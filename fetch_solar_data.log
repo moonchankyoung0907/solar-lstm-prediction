@@ -851,3 +851,13 @@ PermissionError: [Errno 13] Permission denied: 'C:\\Users\\3060\\Desktop\\2026-s
 2026-07-19 07:23:07,113 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-07-18)
 2026-07-19 07:23:07,114 [INFO] fetch_solar: Summary | actual=400.6 kWh  forecast=400.6 kWh  date=2026-07-18
 2026-07-19 07:23:07,115 [INFO] fetch_solar: === Daily fetch done ===
+2026-07-20 00:00:04,400 [INFO] fetch_solar: === Daily fetch start: 2026-07-19 ===
+2026-07-20 00:00:04,401 [INFO] fetch_solar: Building rows for 2026-07-19
+2026-07-20 00:00:05,757 [INFO] fetch_solar: Actual weather fetched for 2026-07-19 (24 hours)
+2026-07-20 00:00:06,847 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-07-19&end_date=2026-07-19&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-07-20 00:00:06,847 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-07-19
+2026-07-20 00:00:07,945 [INFO] fetch_solar: Actual weather fetched for 2026-07-19 (24 hours)
+2026-07-20 00:00:08,907 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-07-19)
+2026-07-20 00:00:09,101 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-07-19)
+2026-07-20 00:00:09,102 [INFO] fetch_solar: Summary | actual=358.3 kWh  forecast=358.3 kWh  date=2026-07-19
+2026-07-20 00:00:09,102 [INFO] fetch_solar: === Daily fetch done ===
