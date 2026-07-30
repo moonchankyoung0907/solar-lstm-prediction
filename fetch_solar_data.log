@@ -287,3 +287,587 @@ PermissionError: [Errno 13] Permission denied: 'C:\\Users\\3060\\Desktop\\2026-s
 2026-04-23 00:00:08,804 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-22)
 2026-04-23 00:00:08,804 [INFO] fetch_solar: Summary | actual=107.4 kWh  forecast=107.4 kWh  date=2026-04-22
 2026-04-23 00:00:08,804 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-24 00:00:03,727 [INFO] fetch_solar: === Daily fetch start: 2026-04-23 ===
+2026-04-24 00:00:03,727 [INFO] fetch_solar: Building rows for 2026-04-23
+2026-04-24 00:00:05,050 [INFO] fetch_solar: Actual weather fetched for 2026-04-23 (24 hours)
+2026-04-24 00:00:07,794 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-04-23&end_date=2026-04-23&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-04-24 00:00:07,794 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-23
+2026-04-24 00:00:08,715 [INFO] fetch_solar: Actual weather fetched for 2026-04-23 (24 hours)
+2026-04-24 00:00:09,007 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-23)
+2026-04-24 00:00:09,169 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-23)
+2026-04-24 00:00:09,170 [INFO] fetch_solar: Summary | actual=260.2 kWh  forecast=260.2 kWh  date=2026-04-23
+2026-04-24 00:00:09,170 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-25 00:00:03,853 [INFO] fetch_solar: === Daily fetch start: 2026-04-24 ===
+2026-04-25 00:00:03,853 [INFO] fetch_solar: Building rows for 2026-04-24
+2026-04-25 00:00:04,844 [INFO] fetch_solar: Actual weather fetched for 2026-04-24 (24 hours)
+2026-04-25 00:00:06,168 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-04-24&end_date=2026-04-24&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-04-25 00:00:06,169 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-24
+2026-04-25 00:00:07,084 [INFO] fetch_solar: Actual weather fetched for 2026-04-24 (24 hours)
+2026-04-25 00:00:07,376 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-24)
+2026-04-25 00:00:07,543 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-24)
+2026-04-25 00:00:07,543 [INFO] fetch_solar: Summary | actual=531.8 kWh  forecast=531.8 kWh  date=2026-04-24
+2026-04-25 00:00:07,544 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-26 00:00:04,037 [INFO] fetch_solar: === Daily fetch start: 2026-04-25 ===
+2026-04-26 00:00:04,037 [INFO] fetch_solar: Building rows for 2026-04-25
+2026-04-26 00:00:05,029 [INFO] fetch_solar: Actual weather fetched for 2026-04-25 (24 hours)
+2026-04-26 00:00:06,519 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-04-25&end_date=2026-04-25&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-04-26 00:00:06,520 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-25
+2026-04-26 00:00:07,451 [INFO] fetch_solar: Actual weather fetched for 2026-04-25 (24 hours)
+2026-04-26 00:00:07,768 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-25)
+2026-04-26 00:00:07,924 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-25)
+2026-04-26 00:00:07,924 [INFO] fetch_solar: Summary | actual=538.2 kWh  forecast=538.2 kWh  date=2026-04-25
+2026-04-26 00:00:07,924 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-27 00:00:03,976 [INFO] fetch_solar: === Daily fetch start: 2026-04-26 ===
+2026-04-27 00:00:03,976 [INFO] fetch_solar: Building rows for 2026-04-26
+2026-04-27 00:00:04,965 [INFO] fetch_solar: Actual weather fetched for 2026-04-26 (24 hours)
+2026-04-27 00:00:26,023 [WARNING] fetch_solar: Forecast API failed (HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-04-26&end_date=2026-04-26&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3 (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.open-meteo.com', port=443) at 0x19748e886d0>, 'Connection to api.open-meteo.com timed out. (connect timeout=30)'))), falling back to archive.
+2026-04-27 00:00:26,023 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-26
+2026-04-27 00:00:27,018 [INFO] fetch_solar: Actual weather fetched for 2026-04-26 (24 hours)
+2026-04-27 00:00:27,340 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-26)
+2026-04-27 00:00:27,494 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-26)
+2026-04-27 00:00:27,494 [INFO] fetch_solar: Summary | actual=509.6 kWh  forecast=509.6 kWh  date=2026-04-26
+2026-04-27 00:00:27,494 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-28 00:00:04,033 [INFO] fetch_solar: === Daily fetch start: 2026-04-27 ===
+2026-04-28 00:00:04,034 [INFO] fetch_solar: Building rows for 2026-04-27
+2026-04-28 00:00:05,045 [INFO] fetch_solar: Actual weather fetched for 2026-04-27 (24 hours)
+2026-04-28 00:00:07,270 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-04-27&end_date=2026-04-27&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-04-28 00:00:07,270 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-27
+2026-04-28 00:00:08,194 [INFO] fetch_solar: Actual weather fetched for 2026-04-27 (24 hours)
+2026-04-28 00:00:08,538 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-27)
+2026-04-28 00:00:08,693 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-27)
+2026-04-28 00:00:08,694 [INFO] fetch_solar: Summary | actual=496.7 kWh  forecast=496.7 kWh  date=2026-04-27
+2026-04-28 00:00:08,694 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-29 00:00:04,001 [INFO] fetch_solar: === Daily fetch start: 2026-04-28 ===
+2026-04-29 00:00:04,001 [INFO] fetch_solar: Building rows for 2026-04-28
+2026-04-29 00:00:05,000 [INFO] fetch_solar: Actual weather fetched for 2026-04-28 (24 hours)
+2026-04-29 00:00:07,955 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-04-28&end_date=2026-04-28&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-04-29 00:00:07,956 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-28
+2026-04-29 00:00:09,669 [INFO] fetch_solar: Actual weather fetched for 2026-04-28 (24 hours)
+2026-04-29 00:00:09,995 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-28)
+2026-04-29 00:00:10,156 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-28)
+2026-04-29 00:00:10,157 [INFO] fetch_solar: Summary | actual=373.8 kWh  forecast=373.8 kWh  date=2026-04-28
+2026-04-29 00:00:10,157 [INFO] fetch_solar: === Daily fetch done ===
+2026-04-30 00:00:04,179 [INFO] fetch_solar: === Daily fetch start: 2026-04-29 ===
+2026-04-30 00:00:04,179 [INFO] fetch_solar: Building rows for 2026-04-29
+2026-04-30 00:00:25,222 [ERROR] fetch_solar: Failed to fetch actual weather: HTTPSConnectionPool(host='archive-api.open-meteo.com', port=443): Max retries exceeded with url: /v1/archive?latitude=34.9418&longitude=128.0635&start_date=2026-04-29&end_date=2026-04-29&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul (Caused by ConnectTimeoutError(<HTTPSConnection(host='archive-api.open-meteo.com', port=443) at 0x2691b51ecd0>, 'Connection to archive-api.open-meteo.com timed out. (connect timeout=30)'))
+2026-04-30 00:00:26,167 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-04-29&end_date=2026-04-29&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-04-30 00:00:26,167 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-29
+2026-04-30 00:00:47,214 [ERROR] fetch_solar: Failed to fetch actual weather: HTTPSConnectionPool(host='archive-api.open-meteo.com', port=443): Max retries exceeded with url: /v1/archive?latitude=34.9418&longitude=128.0635&start_date=2026-04-29&end_date=2026-04-29&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul (Caused by ConnectTimeoutError(<HTTPSConnection(host='archive-api.open-meteo.com', port=443) at 0x2691b539cd0>, 'Connection to archive-api.open-meteo.com timed out. (connect timeout=30)'))
+2026-04-30 00:00:47,542 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-29)
+2026-04-30 00:00:47,706 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-29)
+2026-04-30 00:00:47,707 [INFO] fetch_solar: Summary | actual=0.0 kWh  forecast=0.0 kWh  date=2026-04-29
+2026-04-30 00:00:47,707 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-01 00:00:04,022 [INFO] fetch_solar: === Daily fetch start: 2026-04-30 ===
+2026-05-01 00:00:04,023 [INFO] fetch_solar: Building rows for 2026-04-30
+2026-05-01 00:00:05,498 [INFO] fetch_solar: Actual weather fetched for 2026-04-30 (24 hours)
+2026-05-01 00:00:08,112 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-04-30&end_date=2026-04-30&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-01 00:00:08,112 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-04-30
+2026-05-01 00:00:09,045 [INFO] fetch_solar: Actual weather fetched for 2026-04-30 (24 hours)
+2026-05-01 00:00:09,376 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-04-30)
+2026-05-01 00:00:09,538 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-04-30)
+2026-05-01 00:00:09,539 [INFO] fetch_solar: Summary | actual=280.8 kWh  forecast=280.8 kWh  date=2026-04-30
+2026-05-01 00:00:09,539 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-02 00:00:03,919 [INFO] fetch_solar: === Daily fetch start: 2026-05-01 ===
+2026-05-02 00:00:03,920 [INFO] fetch_solar: Building rows for 2026-05-01
+2026-05-02 00:00:04,913 [INFO] fetch_solar: Actual weather fetched for 2026-05-01 (24 hours)
+2026-05-02 00:00:07,950 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-01&end_date=2026-05-01&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-02 00:00:07,950 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-01
+2026-05-02 00:00:08,882 [INFO] fetch_solar: Actual weather fetched for 2026-05-01 (24 hours)
+2026-05-02 00:00:09,215 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-01)
+2026-05-02 00:00:09,378 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-01)
+2026-05-02 00:00:09,378 [INFO] fetch_solar: Summary | actual=476.7 kWh  forecast=476.7 kWh  date=2026-05-01
+2026-05-02 00:00:09,378 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-03 00:00:04,117 [INFO] fetch_solar: === Daily fetch start: 2026-05-02 ===
+2026-05-03 00:00:04,118 [INFO] fetch_solar: Building rows for 2026-05-02
+2026-05-03 00:00:05,151 [INFO] fetch_solar: Actual weather fetched for 2026-05-02 (24 hours)
+2026-05-03 00:00:07,633 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-02&end_date=2026-05-02&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-03 00:00:07,633 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-02
+2026-05-03 00:00:08,582 [INFO] fetch_solar: Actual weather fetched for 2026-05-02 (24 hours)
+2026-05-03 00:00:08,952 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-02)
+2026-05-03 00:00:09,120 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-02)
+2026-05-03 00:00:09,121 [INFO] fetch_solar: Summary | actual=323.0 kWh  forecast=323.0 kWh  date=2026-05-02
+2026-05-03 00:00:09,122 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-04 19:33:09,654 [INFO] fetch_solar: Scheduler mode: will run daily at 00:00 Asia/Seoul
+2026-05-04 19:33:09,670 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-05-04 19:35:59,043 [INFO] fetch_solar: === Daily fetch start: 2026-05-03 ===
+2026-05-04 19:35:59,044 [INFO] fetch_solar: Building rows for 2026-05-03
+2026-05-04 19:36:00,038 [INFO] fetch_solar: Actual weather fetched for 2026-05-03 (24 hours)
+2026-05-04 19:36:00,984 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-03&end_date=2026-05-03&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-04 19:36:00,984 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-03
+2026-05-04 19:36:01,914 [INFO] fetch_solar: Actual weather fetched for 2026-05-03 (24 hours)
+2026-05-04 19:36:02,242 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-03)
+2026-05-04 19:36:02,427 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-03)
+2026-05-04 19:36:02,428 [INFO] fetch_solar: Summary | actual=147.1 kWh  forecast=147.1 kWh  date=2026-05-03
+2026-05-04 19:36:02,428 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-04 19:36:22,174 [INFO] fetch_solar: Scheduler mode: will run daily at 00:00 Asia/Seoul
+2026-05-04 19:36:22,178 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-05-05 00:00:03,982 [INFO] fetch_solar: === Daily fetch start: 2026-05-04 ===
+2026-05-05 00:00:03,982 [INFO] fetch_solar: Building rows for 2026-05-04
+2026-05-05 00:00:04,985 [INFO] fetch_solar: Actual weather fetched for 2026-05-04 (24 hours)
+2026-05-05 00:00:07,866 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-04&end_date=2026-05-04&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-05 00:00:07,866 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-04
+2026-05-05 00:00:08,815 [INFO] fetch_solar: Actual weather fetched for 2026-05-04 (24 hours)
+2026-05-05 00:00:09,194 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-04)
+2026-05-05 00:00:09,359 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-04)
+2026-05-05 00:00:09,360 [INFO] fetch_solar: Summary | actual=505.8 kWh  forecast=505.8 kWh  date=2026-05-04
+2026-05-05 00:00:09,360 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-06 00:00:04,299 [INFO] fetch_solar: === Daily fetch start: 2026-05-05 ===
+2026-05-06 00:00:04,300 [INFO] fetch_solar: Building rows for 2026-05-05
+2026-05-06 00:00:05,288 [INFO] fetch_solar: Actual weather fetched for 2026-05-05 (24 hours)
+2026-05-06 00:00:08,457 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-05&end_date=2026-05-05&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-06 00:00:08,457 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-05
+2026-05-06 00:00:09,772 [INFO] fetch_solar: Actual weather fetched for 2026-05-05 (24 hours)
+2026-05-06 00:00:10,115 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-05)
+2026-05-06 00:00:10,291 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-05)
+2026-05-06 00:00:10,293 [INFO] fetch_solar: Summary | actual=566.6 kWh  forecast=566.6 kWh  date=2026-05-05
+2026-05-06 00:00:10,293 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-07 00:00:04,145 [INFO] fetch_solar: === Daily fetch start: 2026-05-06 ===
+2026-05-07 00:00:04,145 [INFO] fetch_solar: Building rows for 2026-05-06
+2026-05-07 00:00:07,732 [INFO] fetch_solar: Actual weather fetched for 2026-05-06 (24 hours)
+2026-05-07 00:00:09,303 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-06&end_date=2026-05-06&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-07 00:00:09,303 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-06
+2026-05-07 00:00:11,021 [INFO] fetch_solar: Actual weather fetched for 2026-05-06 (24 hours)
+2026-05-07 00:00:11,372 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-06)
+2026-05-07 00:00:11,544 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-06)
+2026-05-07 00:00:11,544 [INFO] fetch_solar: Summary | actual=555.3 kWh  forecast=555.3 kWh  date=2026-05-06
+2026-05-07 00:00:11,545 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-08 00:00:04,144 [INFO] fetch_solar: === Daily fetch start: 2026-05-07 ===
+2026-05-08 00:00:04,144 [INFO] fetch_solar: Building rows for 2026-05-07
+2026-05-08 00:00:05,123 [INFO] fetch_solar: Actual weather fetched for 2026-05-07 (24 hours)
+2026-05-08 00:00:06,901 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-07&end_date=2026-05-07&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-08 00:00:06,901 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-07
+2026-05-08 00:00:07,808 [INFO] fetch_solar: Actual weather fetched for 2026-05-07 (24 hours)
+2026-05-08 00:00:08,159 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-07)
+2026-05-08 00:00:08,332 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-07)
+2026-05-08 00:00:08,333 [INFO] fetch_solar: Summary | actual=540.3 kWh  forecast=540.3 kWh  date=2026-05-07
+2026-05-08 00:00:08,333 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-09 00:00:04,182 [INFO] fetch_solar: === Daily fetch start: 2026-05-08 ===
+2026-05-09 00:00:04,182 [INFO] fetch_solar: Building rows for 2026-05-08
+2026-05-09 00:00:05,149 [INFO] fetch_solar: Actual weather fetched for 2026-05-08 (24 hours)
+2026-05-09 00:00:06,857 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-08&end_date=2026-05-08&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-09 00:00:06,857 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-08
+2026-05-09 00:00:07,788 [INFO] fetch_solar: Actual weather fetched for 2026-05-08 (24 hours)
+2026-05-09 00:00:08,139 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-08)
+2026-05-09 00:00:08,320 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-08)
+2026-05-09 00:00:08,320 [INFO] fetch_solar: Summary | actual=565.2 kWh  forecast=565.2 kWh  date=2026-05-08
+2026-05-09 00:00:08,321 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-10 00:00:04,272 [INFO] fetch_solar: === Daily fetch start: 2026-05-09 ===
+2026-05-10 00:00:04,272 [INFO] fetch_solar: Building rows for 2026-05-09
+2026-05-10 00:00:05,245 [INFO] fetch_solar: Actual weather fetched for 2026-05-09 (24 hours)
+2026-05-10 00:00:09,196 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-09&end_date=2026-05-09&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-10 00:00:09,196 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-09
+2026-05-10 00:00:10,119 [INFO] fetch_solar: Actual weather fetched for 2026-05-09 (24 hours)
+2026-05-10 00:00:10,475 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-09)
+2026-05-10 00:00:10,653 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-09)
+2026-05-10 00:00:10,653 [INFO] fetch_solar: Summary | actual=571.1 kWh  forecast=571.1 kWh  date=2026-05-09
+2026-05-10 00:00:10,654 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-11 00:00:04,536 [INFO] fetch_solar: === Daily fetch start: 2026-05-10 ===
+2026-05-11 00:00:04,536 [INFO] fetch_solar: Building rows for 2026-05-10
+2026-05-11 00:00:05,508 [INFO] fetch_solar: Actual weather fetched for 2026-05-10 (24 hours)
+2026-05-11 00:00:07,982 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-10&end_date=2026-05-10&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-11 00:00:07,982 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-10
+2026-05-11 00:00:08,893 [INFO] fetch_solar: Actual weather fetched for 2026-05-10 (24 hours)
+2026-05-11 00:00:09,268 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-10)
+2026-05-11 00:00:09,457 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-10)
+2026-05-11 00:00:09,458 [INFO] fetch_solar: Summary | actual=565.2 kWh  forecast=565.2 kWh  date=2026-05-10
+2026-05-11 00:00:09,458 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-12 00:00:04,182 [INFO] fetch_solar: === Daily fetch start: 2026-05-11 ===
+2026-05-12 00:00:04,183 [INFO] fetch_solar: Building rows for 2026-05-11
+2026-05-12 00:00:05,218 [INFO] fetch_solar: Actual weather fetched for 2026-05-11 (24 hours)
+2026-05-12 00:00:09,040 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-11&end_date=2026-05-11&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-12 00:00:09,041 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-11
+2026-05-12 00:00:10,002 [INFO] fetch_solar: Actual weather fetched for 2026-05-11 (24 hours)
+2026-05-12 00:00:10,407 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-11)
+2026-05-12 00:00:10,593 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-11)
+2026-05-12 00:00:10,594 [INFO] fetch_solar: Summary | actual=472.9 kWh  forecast=472.9 kWh  date=2026-05-11
+2026-05-12 00:00:10,594 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-13 00:00:04,154 [INFO] fetch_solar: === Daily fetch start: 2026-05-12 ===
+2026-05-13 00:00:04,154 [INFO] fetch_solar: Building rows for 2026-05-12
+2026-05-13 00:00:05,135 [INFO] fetch_solar: Actual weather fetched for 2026-05-12 (24 hours)
+2026-05-13 00:00:07,366 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-12&end_date=2026-05-12&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-13 00:00:07,366 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-12
+2026-05-13 00:00:08,290 [INFO] fetch_solar: Actual weather fetched for 2026-05-12 (24 hours)
+2026-05-13 00:00:08,649 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-12)
+2026-05-13 00:00:08,837 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-12)
+2026-05-13 00:00:08,837 [INFO] fetch_solar: Summary | actual=187.4 kWh  forecast=187.4 kWh  date=2026-05-12
+2026-05-13 00:00:08,838 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-15 00:00:04,395 [INFO] fetch_solar: === Daily fetch start: 2026-05-14 ===
+2026-05-15 00:00:04,395 [INFO] fetch_solar: Building rows for 2026-05-14
+2026-05-15 00:00:05,376 [INFO] fetch_solar: Actual weather fetched for 2026-05-14 (24 hours)
+2026-05-15 00:00:07,420 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-14&end_date=2026-05-14&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-15 00:00:07,420 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-14
+2026-05-15 00:00:08,338 [INFO] fetch_solar: Actual weather fetched for 2026-05-14 (24 hours)
+2026-05-15 00:00:08,735 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-14)
+2026-05-15 00:00:08,923 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-14)
+2026-05-15 00:00:08,924 [INFO] fetch_solar: Summary | actual=545.2 kWh  forecast=545.2 kWh  date=2026-05-14
+2026-05-15 00:00:08,924 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-16 00:00:03,648 [INFO] fetch_solar: === Daily fetch start: 2026-05-15 ===
+2026-05-16 00:00:03,648 [INFO] fetch_solar: Building rows for 2026-05-15
+2026-05-16 00:00:04,676 [INFO] fetch_solar: Actual weather fetched for 2026-05-15 (24 hours)
+2026-05-16 00:00:09,838 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-15&end_date=2026-05-15&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-16 00:00:09,838 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-15
+2026-05-16 00:00:10,823 [INFO] fetch_solar: Actual weather fetched for 2026-05-15 (24 hours)
+2026-05-16 00:00:11,198 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-15)
+2026-05-16 00:00:11,391 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-15)
+2026-05-16 00:00:11,391 [INFO] fetch_solar: Summary | actual=594.8 kWh  forecast=594.8 kWh  date=2026-05-15
+2026-05-16 00:00:11,392 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-17 00:00:03,531 [INFO] fetch_solar: === Daily fetch start: 2026-05-16 ===
+2026-05-17 00:00:03,531 [INFO] fetch_solar: Building rows for 2026-05-16
+2026-05-17 00:00:04,531 [INFO] fetch_solar: Actual weather fetched for 2026-05-16 (24 hours)
+2026-05-17 00:00:09,738 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-16&end_date=2026-05-16&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-17 00:00:09,739 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-16
+2026-05-17 00:00:10,954 [INFO] fetch_solar: Actual weather fetched for 2026-05-16 (24 hours)
+2026-05-17 00:00:11,343 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-16)
+2026-05-17 00:00:11,436 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-16)
+2026-05-17 00:00:11,436 [INFO] fetch_solar: Summary | actual=572.4 kWh  forecast=572.4 kWh  date=2026-05-16
+2026-05-17 00:00:11,436 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-19 12:26:36,572 [INFO] fetch_solar: === Daily fetch start: 2026-05-18 ===
+2026-05-19 12:26:36,573 [INFO] fetch_solar: Building rows for 2026-05-18
+2026-05-19 12:26:37,570 [INFO] fetch_solar: Actual weather fetched for 2026-05-18 (24 hours)
+2026-05-19 12:26:38,542 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-18&end_date=2026-05-18&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-19 12:26:38,543 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-18
+2026-05-19 12:26:39,484 [INFO] fetch_solar: Actual weather fetched for 2026-05-18 (24 hours)
+2026-05-19 12:26:40,992 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-18)
+2026-05-19 12:26:41,092 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-18)
+2026-05-19 12:26:41,094 [INFO] fetch_solar: Summary | actual=588.9 kWh  forecast=588.9 kWh  date=2026-05-18
+2026-05-19 12:26:41,094 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-20 00:00:04,009 [INFO] fetch_solar: === Daily fetch start: 2026-05-19 ===
+2026-05-20 00:00:04,009 [INFO] fetch_solar: Building rows for 2026-05-19
+2026-05-20 00:00:05,047 [INFO] fetch_solar: Actual weather fetched for 2026-05-19 (24 hours)
+2026-05-20 00:00:14,384 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-19&end_date=2026-05-19&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-20 00:00:14,385 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-19
+2026-05-20 00:00:15,354 [INFO] fetch_solar: Actual weather fetched for 2026-05-19 (24 hours)
+2026-05-20 00:00:15,747 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-19)
+2026-05-20 00:00:15,843 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-19)
+2026-05-20 00:00:15,844 [INFO] fetch_solar: Summary | actual=527.5 kWh  forecast=527.5 kWh  date=2026-05-19
+2026-05-20 00:00:15,844 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-21 00:00:03,999 [INFO] fetch_solar: === Daily fetch start: 2026-05-20 ===
+2026-05-21 00:00:04,000 [INFO] fetch_solar: Building rows for 2026-05-20
+2026-05-21 00:00:04,989 [INFO] fetch_solar: Actual weather fetched for 2026-05-20 (24 hours)
+2026-05-21 00:00:07,871 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-20&end_date=2026-05-20&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-21 00:00:07,871 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-20
+2026-05-21 00:00:08,824 [INFO] fetch_solar: Actual weather fetched for 2026-05-20 (24 hours)
+2026-05-21 00:00:09,225 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-20)
+2026-05-21 00:00:09,325 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-20)
+2026-05-21 00:00:09,326 [INFO] fetch_solar: Summary | actual=87.7 kWh  forecast=87.7 kWh  date=2026-05-20
+2026-05-21 00:00:09,326 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-22 00:00:04,288 [INFO] fetch_solar: === Daily fetch start: 2026-05-21 ===
+2026-05-22 00:00:04,288 [INFO] fetch_solar: Building rows for 2026-05-21
+2026-05-22 00:00:05,280 [INFO] fetch_solar: Actual weather fetched for 2026-05-21 (24 hours)
+2026-05-22 00:00:08,152 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-21&end_date=2026-05-21&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-22 00:00:08,152 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-21
+2026-05-22 00:00:09,598 [INFO] fetch_solar: Actual weather fetched for 2026-05-21 (24 hours)
+2026-05-22 00:00:09,994 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-21)
+2026-05-22 00:00:10,099 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-21)
+2026-05-22 00:00:10,100 [INFO] fetch_solar: Summary | actual=438.3 kWh  forecast=438.3 kWh  date=2026-05-21
+2026-05-22 00:00:10,100 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-23 00:00:04,194 [INFO] fetch_solar: === Daily fetch start: 2026-05-22 ===
+2026-05-23 00:00:04,194 [INFO] fetch_solar: Building rows for 2026-05-22
+2026-05-23 00:00:05,186 [INFO] fetch_solar: Actual weather fetched for 2026-05-22 (24 hours)
+2026-05-23 00:00:08,998 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-22&end_date=2026-05-22&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-23 00:00:08,998 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-22
+2026-05-23 00:00:09,952 [INFO] fetch_solar: Actual weather fetched for 2026-05-22 (24 hours)
+2026-05-23 00:00:10,352 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-22)
+2026-05-23 00:00:10,465 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-22)
+2026-05-23 00:00:10,465 [INFO] fetch_solar: Summary | actual=417.7 kWh  forecast=417.7 kWh  date=2026-05-22
+2026-05-23 00:00:10,466 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-24 00:00:04,314 [INFO] fetch_solar: === Daily fetch start: 2026-05-23 ===
+2026-05-24 00:00:04,314 [INFO] fetch_solar: Building rows for 2026-05-23
+2026-05-24 00:00:08,293 [ERROR] fetch_solar: Failed to fetch actual weather: 504 Server Error: Gateway Time-out for url: https://archive-api.open-meteo.com/v1/archive?latitude=34.9418&longitude=128.0635&start_date=2026-05-23&end_date=2026-05-23&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul
+2026-05-24 00:00:09,641 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-23&end_date=2026-05-23&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-24 00:00:09,641 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-23
+2026-05-24 00:00:13,582 [ERROR] fetch_solar: Failed to fetch actual weather: 504 Server Error: Gateway Time-out for url: https://archive-api.open-meteo.com/v1/archive?latitude=34.9418&longitude=128.0635&start_date=2026-05-23&end_date=2026-05-23&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul
+2026-05-24 00:00:13,980 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-23)
+2026-05-24 00:00:14,088 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-23)
+2026-05-24 00:00:14,089 [INFO] fetch_solar: Summary | actual=0.0 kWh  forecast=0.0 kWh  date=2026-05-23
+2026-05-24 00:00:14,089 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-25 00:00:04,351 [INFO] fetch_solar: === Daily fetch start: 2026-05-24 ===
+2026-05-25 00:00:04,351 [INFO] fetch_solar: Building rows for 2026-05-24
+2026-05-25 00:00:05,330 [INFO] fetch_solar: Actual weather fetched for 2026-05-24 (24 hours)
+2026-05-25 00:00:08,823 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-24&end_date=2026-05-24&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-25 00:00:08,823 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-24
+2026-05-25 00:00:09,792 [INFO] fetch_solar: Actual weather fetched for 2026-05-24 (24 hours)
+2026-05-25 00:00:10,208 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-24)
+2026-05-25 00:00:10,323 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-24)
+2026-05-25 00:00:10,323 [INFO] fetch_solar: Summary | actual=497.4 kWh  forecast=497.4 kWh  date=2026-05-24
+2026-05-25 00:00:10,323 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-26 00:00:04,068 [INFO] fetch_solar: === Daily fetch start: 2026-05-25 ===
+2026-05-26 00:00:04,068 [INFO] fetch_solar: Building rows for 2026-05-25
+2026-05-26 00:00:05,039 [INFO] fetch_solar: Actual weather fetched for 2026-05-25 (24 hours)
+2026-05-26 00:00:12,428 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-25&end_date=2026-05-25&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-26 00:00:12,429 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-25
+2026-05-26 00:00:13,387 [INFO] fetch_solar: Actual weather fetched for 2026-05-25 (24 hours)
+2026-05-26 00:00:13,784 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-25)
+2026-05-26 00:00:13,895 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-25)
+2026-05-26 00:00:13,896 [INFO] fetch_solar: Summary | actual=493.5 kWh  forecast=493.5 kWh  date=2026-05-25
+2026-05-26 00:00:13,896 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-27 00:00:03,873 [INFO] fetch_solar: === Daily fetch start: 2026-05-26 ===
+2026-05-27 00:00:03,873 [INFO] fetch_solar: Building rows for 2026-05-26
+2026-05-27 00:00:04,870 [INFO] fetch_solar: Actual weather fetched for 2026-05-26 (24 hours)
+2026-05-27 00:00:05,383 [WARNING] fetch_solar: Forecast API failed (HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-26&end_date=2026-05-26&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))), falling back to archive.
+2026-05-27 00:00:05,383 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-26
+2026-05-27 00:00:06,339 [INFO] fetch_solar: Actual weather fetched for 2026-05-26 (24 hours)
+2026-05-27 00:00:06,753 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-26)
+2026-05-27 00:00:06,865 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-26)
+2026-05-27 00:00:06,866 [INFO] fetch_solar: Summary | actual=284.7 kWh  forecast=284.7 kWh  date=2026-05-26
+2026-05-27 00:00:06,866 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-28 00:00:03,755 [INFO] fetch_solar: === Daily fetch start: 2026-05-27 ===
+2026-05-28 00:00:03,755 [INFO] fetch_solar: Building rows for 2026-05-27
+2026-05-28 00:00:04,737 [INFO] fetch_solar: Actual weather fetched for 2026-05-27 (24 hours)
+2026-05-28 00:00:05,713 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-27&end_date=2026-05-27&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-28 00:00:05,714 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-27
+2026-05-28 00:00:06,670 [INFO] fetch_solar: Actual weather fetched for 2026-05-27 (24 hours)
+2026-05-28 00:00:07,133 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-27)
+2026-05-28 00:00:07,252 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-27)
+2026-05-28 00:00:07,253 [INFO] fetch_solar: Summary | actual=151.5 kWh  forecast=151.5 kWh  date=2026-05-27
+2026-05-28 00:00:07,253 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-30 00:00:04,028 [INFO] fetch_solar: === Daily fetch start: 2026-05-29 ===
+2026-05-30 00:00:04,029 [INFO] fetch_solar: Building rows for 2026-05-29
+2026-05-30 00:00:07,273 [INFO] fetch_solar: Actual weather fetched for 2026-05-29 (24 hours)
+2026-05-30 00:00:08,266 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-29&end_date=2026-05-29&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-30 00:00:08,266 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-29
+2026-05-30 00:00:09,265 [INFO] fetch_solar: Actual weather fetched for 2026-05-29 (24 hours)
+2026-05-30 00:00:09,717 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-29)
+2026-05-30 00:00:09,834 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-29)
+2026-05-30 00:00:09,835 [INFO] fetch_solar: Summary | actual=556.9 kWh  forecast=556.9 kWh  date=2026-05-29
+2026-05-30 00:00:09,835 [INFO] fetch_solar: === Daily fetch done ===
+2026-05-31 00:00:04,015 [INFO] fetch_solar: === Daily fetch start: 2026-05-30 ===
+2026-05-31 00:00:04,016 [INFO] fetch_solar: Building rows for 2026-05-30
+2026-05-31 00:00:05,576 [INFO] fetch_solar: Actual weather fetched for 2026-05-30 (24 hours)
+2026-05-31 00:00:06,541 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-30&end_date=2026-05-30&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-05-31 00:00:06,542 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-30
+2026-05-31 00:00:08,020 [INFO] fetch_solar: Actual weather fetched for 2026-05-30 (24 hours)
+2026-05-31 00:00:08,440 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-30)
+2026-05-31 00:00:08,560 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-30)
+2026-05-31 00:00:08,560 [INFO] fetch_solar: Summary | actual=563.0 kWh  forecast=563.0 kWh  date=2026-05-30
+2026-05-31 00:00:08,560 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-01 00:00:04,040 [INFO] fetch_solar: === Daily fetch start: 2026-05-31 ===
+2026-06-01 00:00:04,041 [INFO] fetch_solar: Building rows for 2026-05-31
+2026-06-01 00:00:05,709 [INFO] fetch_solar: Actual weather fetched for 2026-05-31 (24 hours)
+2026-06-01 00:00:06,698 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-05-31&end_date=2026-05-31&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-01 00:00:06,698 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-05-31
+2026-06-01 00:00:10,508 [INFO] fetch_solar: Actual weather fetched for 2026-05-31 (24 hours)
+2026-06-01 00:00:10,931 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-05-31)
+2026-06-01 00:00:11,052 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-05-31)
+2026-06-01 00:00:11,053 [INFO] fetch_solar: Summary | actual=601.3 kWh  forecast=601.3 kWh  date=2026-05-31
+2026-06-01 00:00:11,053 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-02 00:00:03,856 [INFO] fetch_solar: === Daily fetch start: 2026-06-01 ===
+2026-06-02 00:00:03,856 [INFO] fetch_solar: Building rows for 2026-06-01
+2026-06-02 00:00:04,890 [INFO] fetch_solar: Actual weather fetched for 2026-06-01 (24 hours)
+2026-06-02 00:00:06,181 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-01&end_date=2026-06-01&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-02 00:00:06,181 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-01
+2026-06-02 00:00:08,940 [INFO] fetch_solar: Actual weather fetched for 2026-06-01 (24 hours)
+2026-06-02 00:00:09,376 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-01)
+2026-06-02 00:00:09,502 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-01)
+2026-06-02 00:00:09,503 [INFO] fetch_solar: Summary | actual=489.9 kWh  forecast=489.9 kWh  date=2026-06-01
+2026-06-02 00:00:09,503 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-03 00:00:04,145 [INFO] fetch_solar: === Daily fetch start: 2026-06-02 ===
+2026-06-03 00:00:04,145 [INFO] fetch_solar: Building rows for 2026-06-02
+2026-06-03 00:00:06,815 [INFO] fetch_solar: Actual weather fetched for 2026-06-02 (24 hours)
+2026-06-03 00:00:07,752 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-02&end_date=2026-06-02&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-03 00:00:07,752 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-02
+2026-06-03 00:00:08,739 [INFO] fetch_solar: Actual weather fetched for 2026-06-02 (24 hours)
+2026-06-03 00:00:09,165 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-02)
+2026-06-03 00:00:09,293 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-02)
+2026-06-03 00:00:09,293 [INFO] fetch_solar: Summary | actual=166.9 kWh  forecast=166.9 kWh  date=2026-06-02
+2026-06-03 00:00:09,293 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-04 00:00:04,151 [INFO] fetch_solar: === Daily fetch start: 2026-06-03 ===
+2026-06-04 00:00:04,151 [INFO] fetch_solar: Building rows for 2026-06-03
+2026-06-04 00:00:05,282 [INFO] fetch_solar: Actual weather fetched for 2026-06-03 (24 hours)
+2026-06-04 00:00:06,259 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-03&end_date=2026-06-03&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-04 00:00:06,260 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-03
+2026-06-04 00:00:07,195 [INFO] fetch_solar: Actual weather fetched for 2026-06-03 (24 hours)
+2026-06-04 00:00:07,632 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-03)
+2026-06-04 00:00:07,765 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-03)
+2026-06-04 00:00:07,766 [INFO] fetch_solar: Summary | actual=522.2 kWh  forecast=522.2 kWh  date=2026-06-03
+2026-06-04 00:00:07,766 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-05 00:00:04,123 [INFO] fetch_solar: === Daily fetch start: 2026-06-04 ===
+2026-06-05 00:00:04,124 [INFO] fetch_solar: Building rows for 2026-06-04
+2026-06-05 00:00:05,314 [INFO] fetch_solar: Actual weather fetched for 2026-06-04 (24 hours)
+2026-06-05 00:00:06,618 [WARNING] fetch_solar: Forecast API failed (502 Server Error: Bad Gateway for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-04&end_date=2026-06-04&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-05 00:00:06,618 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-04
+2026-06-05 00:00:07,590 [INFO] fetch_solar: Actual weather fetched for 2026-06-04 (24 hours)
+2026-06-05 00:00:08,032 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-04)
+2026-06-05 00:00:08,167 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-04)
+2026-06-05 00:00:08,168 [INFO] fetch_solar: Summary | actual=365.8 kWh  forecast=365.8 kWh  date=2026-06-04
+2026-06-05 00:00:08,168 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-06 00:00:04,356 [INFO] fetch_solar: === Daily fetch start: 2026-06-05 ===
+2026-06-06 00:00:04,356 [INFO] fetch_solar: Building rows for 2026-06-05
+2026-06-06 00:00:05,420 [INFO] fetch_solar: Actual weather fetched for 2026-06-05 (24 hours)
+2026-06-06 00:00:06,568 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-05&end_date=2026-06-05&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-06 00:00:06,568 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-05
+2026-06-06 00:00:07,550 [INFO] fetch_solar: Actual weather fetched for 2026-06-05 (24 hours)
+2026-06-06 00:00:07,989 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-05)
+2026-06-06 00:00:08,142 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-05)
+2026-06-06 00:00:08,142 [INFO] fetch_solar: Summary | actual=568.3 kWh  forecast=568.3 kWh  date=2026-06-05
+2026-06-06 00:00:08,143 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-07 00:00:04,219 [INFO] fetch_solar: === Daily fetch start: 2026-06-06 ===
+2026-06-07 00:00:04,220 [INFO] fetch_solar: Building rows for 2026-06-06
+2026-06-07 00:00:05,324 [INFO] fetch_solar: Actual weather fetched for 2026-06-06 (24 hours)
+2026-06-07 00:00:06,769 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-06&end_date=2026-06-06&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-07 00:00:06,769 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-06
+2026-06-07 00:00:08,683 [INFO] fetch_solar: Actual weather fetched for 2026-06-06 (24 hours)
+2026-06-07 00:00:09,131 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-06)
+2026-06-07 00:00:09,286 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-06)
+2026-06-07 00:00:09,287 [INFO] fetch_solar: Summary | actual=580.1 kWh  forecast=580.1 kWh  date=2026-06-06
+2026-06-07 00:00:09,287 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-08 00:00:04,204 [INFO] fetch_solar: === Daily fetch start: 2026-06-07 ===
+2026-06-08 00:00:04,204 [INFO] fetch_solar: Building rows for 2026-06-07
+2026-06-08 00:00:07,749 [INFO] fetch_solar: Actual weather fetched for 2026-06-07 (24 hours)
+2026-06-08 00:00:08,711 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-07&end_date=2026-06-07&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-08 00:00:08,711 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-07
+2026-06-08 00:00:12,616 [INFO] fetch_solar: Actual weather fetched for 2026-06-07 (24 hours)
+2026-06-08 00:00:13,060 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-07)
+2026-06-08 00:00:13,220 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-07)
+2026-06-08 00:00:13,221 [INFO] fetch_solar: Summary | actual=426.2 kWh  forecast=426.2 kWh  date=2026-06-07
+2026-06-08 00:00:13,221 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-09 00:00:04,165 [INFO] fetch_solar: === Daily fetch start: 2026-06-08 ===
+2026-06-09 00:00:04,165 [INFO] fetch_solar: Building rows for 2026-06-08
+2026-06-09 00:00:05,189 [INFO] fetch_solar: Actual weather fetched for 2026-06-08 (24 hours)
+2026-06-09 00:00:06,148 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-08&end_date=2026-06-08&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-09 00:00:06,148 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-08
+2026-06-09 00:00:07,090 [INFO] fetch_solar: Actual weather fetched for 2026-06-08 (24 hours)
+2026-06-09 00:00:07,541 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-08)
+2026-06-09 00:00:07,703 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-08)
+2026-06-09 00:00:07,704 [INFO] fetch_solar: Summary | actual=182.6 kWh  forecast=182.6 kWh  date=2026-06-08
+2026-06-09 00:00:07,704 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-10 00:00:04,030 [INFO] fetch_solar: === Daily fetch start: 2026-06-09 ===
+2026-06-10 00:00:04,030 [INFO] fetch_solar: Building rows for 2026-06-09
+2026-06-10 00:00:08,675 [INFO] fetch_solar: Actual weather fetched for 2026-06-09 (24 hours)
+2026-06-10 00:00:09,615 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-09&end_date=2026-06-09&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-10 00:00:09,615 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-09
+2026-06-10 00:00:10,634 [INFO] fetch_solar: Actual weather fetched for 2026-06-09 (24 hours)
+2026-06-10 00:00:11,091 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-09)
+2026-06-10 00:00:11,251 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-09)
+2026-06-10 00:00:11,252 [INFO] fetch_solar: Summary | actual=511.4 kWh  forecast=511.4 kWh  date=2026-06-09
+2026-06-10 00:00:11,252 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-15 12:00:24,786 [INFO] fetch_solar: === Daily fetch start: 2026-06-14 ===
+2026-06-15 12:00:24,786 [INFO] fetch_solar: Building rows for 2026-06-14
+2026-06-15 12:00:26,778 [INFO] fetch_solar: Actual weather fetched for 2026-06-14 (24 hours)
+2026-06-15 12:00:27,692 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-14&end_date=2026-06-14&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-15 12:00:27,692 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-14
+2026-06-15 12:00:28,665 [INFO] fetch_solar: Actual weather fetched for 2026-06-14 (24 hours)
+2026-06-15 12:00:29,184 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-14)
+2026-06-15 12:00:29,349 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-14)
+2026-06-15 12:00:29,350 [INFO] fetch_solar: Summary | actual=547.1 kWh  forecast=547.1 kWh  date=2026-06-14
+2026-06-15 12:00:29,350 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-16 00:00:03,534 [INFO] fetch_solar: === Daily fetch start: 2026-06-15 ===
+2026-06-16 00:00:03,534 [INFO] fetch_solar: Building rows for 2026-06-15
+2026-06-16 00:00:04,958 [INFO] fetch_solar: Actual weather fetched for 2026-06-15 (24 hours)
+2026-06-16 00:00:05,872 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-15&end_date=2026-06-15&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-16 00:00:05,873 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-15
+2026-06-16 00:00:06,842 [INFO] fetch_solar: Actual weather fetched for 2026-06-15 (24 hours)
+2026-06-16 00:00:07,294 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-15)
+2026-06-16 00:00:07,457 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-15)
+2026-06-16 00:00:07,458 [INFO] fetch_solar: Summary | actual=571.7 kWh  forecast=571.7 kWh  date=2026-06-15
+2026-06-16 00:00:07,458 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-17 00:00:03,940 [INFO] fetch_solar: === Daily fetch start: 2026-06-16 ===
+2026-06-17 00:00:03,940 [INFO] fetch_solar: Building rows for 2026-06-16
+2026-06-17 00:00:04,992 [INFO] fetch_solar: Actual weather fetched for 2026-06-16 (24 hours)
+2026-06-17 00:00:05,902 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-16&end_date=2026-06-16&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-17 00:00:05,902 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-16
+2026-06-17 00:00:06,834 [INFO] fetch_solar: Actual weather fetched for 2026-06-16 (24 hours)
+2026-06-17 00:00:07,298 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-16)
+2026-06-17 00:00:07,464 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-16)
+2026-06-17 00:00:07,465 [INFO] fetch_solar: Summary | actual=518.1 kWh  forecast=518.1 kWh  date=2026-06-16
+2026-06-17 00:00:07,465 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-18 00:00:03,819 [INFO] fetch_solar: === Daily fetch start: 2026-06-17 ===
+2026-06-18 00:00:03,820 [INFO] fetch_solar: Building rows for 2026-06-17
+2026-06-18 00:00:05,199 [INFO] fetch_solar: Actual weather fetched for 2026-06-17 (24 hours)
+2026-06-18 00:00:06,136 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-17&end_date=2026-06-17&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-18 00:00:06,136 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-17
+2026-06-18 00:00:07,105 [INFO] fetch_solar: Actual weather fetched for 2026-06-17 (24 hours)
+2026-06-18 00:00:07,614 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-17)
+2026-06-18 00:00:07,784 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-17)
+2026-06-18 00:00:07,785 [INFO] fetch_solar: Summary | actual=461.6 kWh  forecast=461.6 kWh  date=2026-06-17
+2026-06-18 00:00:07,785 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-19 00:00:03,997 [INFO] fetch_solar: === Daily fetch start: 2026-06-18 ===
+2026-06-19 00:00:03,998 [INFO] fetch_solar: Building rows for 2026-06-18
+2026-06-19 00:00:05,142 [INFO] fetch_solar: Actual weather fetched for 2026-06-18 (24 hours)
+2026-06-19 00:00:06,076 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-18&end_date=2026-06-18&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-19 00:00:06,077 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-18
+2026-06-19 00:00:07,111 [INFO] fetch_solar: Actual weather fetched for 2026-06-18 (24 hours)
+2026-06-19 00:00:07,612 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-18)
+2026-06-19 00:00:07,783 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-18)
+2026-06-19 00:00:07,784 [INFO] fetch_solar: Summary | actual=516.6 kWh  forecast=516.6 kWh  date=2026-06-18
+2026-06-19 00:00:07,784 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-20 00:00:03,809 [INFO] fetch_solar: === Daily fetch start: 2026-06-19 ===
+2026-06-20 00:00:03,810 [INFO] fetch_solar: Building rows for 2026-06-19
+2026-06-20 00:00:04,807 [INFO] fetch_solar: Actual weather fetched for 2026-06-19 (24 hours)
+2026-06-20 00:00:05,725 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-19&end_date=2026-06-19&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-20 00:00:05,726 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-19
+2026-06-20 00:00:07,002 [INFO] fetch_solar: Actual weather fetched for 2026-06-19 (24 hours)
+2026-06-20 00:00:07,520 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-19)
+2026-06-20 00:00:07,699 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-19)
+2026-06-20 00:00:07,700 [INFO] fetch_solar: Summary | actual=229.1 kWh  forecast=229.1 kWh  date=2026-06-19
+2026-06-20 00:00:07,700 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-21 00:00:04,144 [INFO] fetch_solar: === Daily fetch start: 2026-06-20 ===
+2026-06-21 00:00:04,144 [INFO] fetch_solar: Building rows for 2026-06-20
+2026-06-21 00:00:06,937 [INFO] fetch_solar: Actual weather fetched for 2026-06-20 (24 hours)
+2026-06-21 00:00:07,875 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-20&end_date=2026-06-20&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-21 00:00:07,875 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-20
+2026-06-21 00:00:11,134 [INFO] fetch_solar: Actual weather fetched for 2026-06-20 (24 hours)
+2026-06-21 00:00:11,645 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-20)
+2026-06-21 00:00:11,820 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-20)
+2026-06-21 00:00:11,822 [INFO] fetch_solar: Summary | actual=369.2 kWh  forecast=369.2 kWh  date=2026-06-20
+2026-06-21 00:00:11,822 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-22 00:00:03,785 [INFO] fetch_solar: === Daily fetch start: 2026-06-21 ===
+2026-06-22 00:00:03,785 [INFO] fetch_solar: Building rows for 2026-06-21
+2026-06-22 00:00:06,084 [INFO] fetch_solar: Actual weather fetched for 2026-06-21 (24 hours)
+2026-06-22 00:00:07,037 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-21&end_date=2026-06-21&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-22 00:00:07,038 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-21
+2026-06-22 00:00:08,680 [INFO] fetch_solar: Actual weather fetched for 2026-06-21 (24 hours)
+2026-06-22 00:00:09,206 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-21)
+2026-06-22 00:00:09,384 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-21)
+2026-06-22 00:00:09,385 [INFO] fetch_solar: Summary | actual=415.4 kWh  forecast=415.4 kWh  date=2026-06-21
+2026-06-22 00:00:09,385 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-23 00:00:03,987 [INFO] fetch_solar: === Daily fetch start: 2026-06-22 ===
+2026-06-23 00:00:03,987 [INFO] fetch_solar: Building rows for 2026-06-22
+2026-06-23 00:00:07,905 [INFO] fetch_solar: Actual weather fetched for 2026-06-22 (24 hours)
+2026-06-23 00:00:08,865 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-22&end_date=2026-06-22&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-23 00:00:08,866 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-22
+2026-06-23 00:00:09,787 [INFO] fetch_solar: Actual weather fetched for 2026-06-22 (24 hours)
+2026-06-23 00:00:10,312 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-22)
+2026-06-23 00:00:10,491 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-22)
+2026-06-23 00:00:10,493 [INFO] fetch_solar: Summary | actual=198.1 kWh  forecast=198.1 kWh  date=2026-06-22
+2026-06-23 00:00:10,493 [INFO] fetch_solar: === Daily fetch done ===
+2026-06-24 00:00:03,930 [INFO] fetch_solar: === Daily fetch start: 2026-06-23 ===
+2026-06-24 00:00:03,931 [INFO] fetch_solar: Building rows for 2026-06-23
+2026-06-24 00:00:05,839 [INFO] fetch_solar: Actual weather fetched for 2026-06-23 (24 hours)
+2026-06-24 00:00:06,761 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-06-23&end_date=2026-06-23&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-06-24 00:00:06,761 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-06-23
+2026-06-24 00:00:07,723 [INFO] fetch_solar: Actual weather fetched for 2026-06-23 (24 hours)
+2026-06-24 00:00:08,252 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-06-23)
+2026-06-24 00:00:08,434 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-06-23)
+2026-06-24 00:00:08,435 [INFO] fetch_solar: Summary | actual=313.6 kWh  forecast=313.6 kWh  date=2026-06-23
+2026-06-24 00:00:08,435 [INFO] fetch_solar: === Daily fetch done ===
+2026-07-19 07:23:00,358 [INFO] fetch_solar: === Daily fetch start: 2026-07-18 ===
+2026-07-19 07:23:00,386 [INFO] fetch_solar: Building rows for 2026-07-18
+2026-07-19 07:23:02,762 [INFO] fetch_solar: Actual weather fetched for 2026-07-18 (24 hours)
+2026-07-19 07:23:03,912 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-07-18&end_date=2026-07-18&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-07-19 07:23:03,913 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-07-18
+2026-07-19 07:23:05,472 [INFO] fetch_solar: Actual weather fetched for 2026-07-18 (24 hours)
+2026-07-19 07:23:06,875 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-07-18)
+2026-07-19 07:23:07,113 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-07-18)
+2026-07-19 07:23:07,114 [INFO] fetch_solar: Summary | actual=400.6 kWh  forecast=400.6 kWh  date=2026-07-18
+2026-07-19 07:23:07,115 [INFO] fetch_solar: === Daily fetch done ===
+2026-07-20 00:00:04,400 [INFO] fetch_solar: === Daily fetch start: 2026-07-19 ===
+2026-07-20 00:00:04,401 [INFO] fetch_solar: Building rows for 2026-07-19
+2026-07-20 00:00:05,757 [INFO] fetch_solar: Actual weather fetched for 2026-07-19 (24 hours)
+2026-07-20 00:00:06,847 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-07-19&end_date=2026-07-19&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-07-20 00:00:06,847 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-07-19
+2026-07-20 00:00:07,945 [INFO] fetch_solar: Actual weather fetched for 2026-07-19 (24 hours)
+2026-07-20 00:00:08,907 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-07-19)
+2026-07-20 00:00:09,101 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-07-19)
+2026-07-20 00:00:09,102 [INFO] fetch_solar: Summary | actual=358.3 kWh  forecast=358.3 kWh  date=2026-07-19
+2026-07-20 00:00:09,102 [INFO] fetch_solar: === Daily fetch done ===
+2026-07-21 00:00:06,767 [INFO] fetch_solar: === Daily fetch start: 2026-07-20 ===
+2026-07-21 00:00:06,767 [INFO] fetch_solar: Building rows for 2026-07-20
+2026-07-21 00:00:08,023 [INFO] fetch_solar: Actual weather fetched for 2026-07-20 (24 hours)
+2026-07-21 00:00:09,148 [WARNING] fetch_solar: Forecast API failed (400 Client Error: Bad Request for url: https://api.open-meteo.com/v1/forecast?latitude=34.9418&longitude=128.0635&start_date=2026-07-20&end_date=2026-07-20&hourly=shortwave_radiation%2Ctemperature_2m%2Cwindspeed_10m&timezone=Asia%2FSeoul&forecast_days=3), falling back to archive.
+2026-07-21 00:00:09,149 [INFO] fetch_solar: Using archive API as forecast fallback for 2026-07-20
+2026-07-21 00:00:13,097 [INFO] fetch_solar: Actual weather fetched for 2026-07-20 (24 hours)
+2026-07-21 00:00:13,641 [INFO] fetch_solar: Saved 24 rows to log.xlsx (date=2026-07-20)
+2026-07-21 00:00:13,840 [INFO] fetch_solar: Saved 24 rows to train_log.xlsx (date=2026-07-20)
+2026-07-21 00:00:13,841 [INFO] fetch_solar: Summary | actual=509.3 kWh  forecast=509.3 kWh  date=2026-07-20
+2026-07-21 00:00:13,841 [INFO] fetch_solar: === Daily fetch done ===
