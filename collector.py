@@ -10,6 +10,8 @@ def parse_line(line):
         if len(parts) < 10:
             return None
         dt = parts[0].strip()
+        # "▲"는 cp949 디코딩 과정에서 "°"가 깨진 것 (온도의 "▲C"와 동일한 현상). 풍향은 0~360도.
+        wind_dir = parts[1].strip().replace("▲", "").strip()
         temp = parts[2].strip().replace("▲C","").replace("℃","").strip()
         humidity = parts[3].strip().replace("%","").strip()
         wind = parts[4].strip().replace("m/s","").strip()
@@ -21,16 +23,17 @@ def parse_line(line):
             if "CRC" in part or "ERROR" in part:
                 crc = "ERROR"
                 break
-        return [dt, float(temp), float(humidity), float(wind), float(rain), float(lux), crc]
+        return [dt, float(temp), float(humidity), float(wind), float(rain), float(lux), crc, float(wind_dir)]
     except:
         return None
 
 def apply_interpolation(ws):
     max_row = ws.max_row
+    data_cols = [2, 3, 4, 5, 6, 8]  # temperature, humidity, wind_speed, rainfall, light_lux, wind_direction (7=crc_status 제외)
     for row_idx in range(2, max_row + 1):
         crc = ws.cell(row=row_idx, column=7).value
         if crc == "ERROR":
-            for col in range(2, 7):
+            for col in data_cols:
                 prev_val = None
                 next_val = None
                 if row_idx > 2:
@@ -48,10 +51,13 @@ def main():
     if os.path.exists(XLSX_PATH):
         wb = openpyxl.load_workbook(XLSX_PATH)
         ws = wb.active
+        header = [c.value for c in ws[1]]
+        if "wind_direction" not in header:
+            ws.cell(row=1, column=len(header) + 1, value="wind_direction")
     else:
         wb = openpyxl.Workbook()
         ws = wb.active
-        ws.append(["datetime","temperature","humidity","wind_speed","rainfall","light_lux","crc_status"])
+        ws.append(["datetime","temperature","humidity","wind_speed","rainfall","light_lux","crc_status","wind_direction"])
 
     existing = set()
     for row in ws.iter_rows(min_row=2, values_only=True):
