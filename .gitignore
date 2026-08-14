@@ -24,3 +24,6 @@ Thumbs.db
 *.pkl
 solar_lstm_sim/models/model_history/
 solar_lstm_xlsx/models/
+
+# 카카오톡 알림 토큰 (민감정보 - 절대 커밋 금지)
+kakao_token_state.json
