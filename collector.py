@@ -54,6 +54,11 @@ def main():
         wb = openpyxl.load_workbook(XLSX_PATH)
         ws = wb.active
         header = [c.value for c in ws[1]]
+        # 7번째 컬럼(crc_status) 라벨이 예전부터 비어있는 파일이 있어 데이터는 정상이어도
+        # 헤더만 None인 경우가 있음 - 라벨만 보정
+        if len(header) >= 7 and not header[6]:
+            ws.cell(row=1, column=7, value="crc_status")
+            header[6] = "crc_status"
         for col_name in ("wind_direction", "uv", "uvi"):
             if col_name not in header:
                 ws.cell(row=1, column=len(header) + 1, value=col_name)
