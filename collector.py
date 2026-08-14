@@ -16,6 +16,8 @@ def parse_line(line):
         humidity = parts[3].strip().replace("%","").strip()
         wind = parts[4].strip().replace("m/s","").strip()
         rain = parts[6].strip()
+        uv = parts[7].strip()      # 자외선 원시값 (WH24 UART Display 화면의 "UV")
+        uvi = parts[8].strip()     # 자외선 지수 0~11 (WH24 UART Display 화면의 "UVI")
         lux = parts[9].strip().replace("lux","").strip()
         # CRC 에러 체크
         crc = "OK"
@@ -23,13 +25,13 @@ def parse_line(line):
             if "CRC" in part or "ERROR" in part:
                 crc = "ERROR"
                 break
-        return [dt, float(temp), float(humidity), float(wind), float(rain), float(lux), crc, float(wind_dir)]
+        return [dt, float(temp), float(humidity), float(wind), float(rain), float(lux), crc, float(wind_dir), float(uv), float(uvi)]
     except:
         return None
 
 def apply_interpolation(ws):
     max_row = ws.max_row
-    data_cols = [2, 3, 4, 5, 6, 8]  # temperature, humidity, wind_speed, rainfall, light_lux, wind_direction (7=crc_status 제외)
+    data_cols = [2, 3, 4, 5, 6, 8, 9, 10]  # temperature, humidity, wind_speed, rainfall, light_lux, wind_direction, uv, uvi (7=crc_status 제외)
     for row_idx in range(2, max_row + 1):
         crc = ws.cell(row=row_idx, column=7).value
         if crc == "ERROR":
@@ -52,12 +54,14 @@ def main():
         wb = openpyxl.load_workbook(XLSX_PATH)
         ws = wb.active
         header = [c.value for c in ws[1]]
-        if "wind_direction" not in header:
-            ws.cell(row=1, column=len(header) + 1, value="wind_direction")
+        for col_name in ("wind_direction", "uv", "uvi"):
+            if col_name not in header:
+                ws.cell(row=1, column=len(header) + 1, value=col_name)
+                header.append(col_name)
     else:
         wb = openpyxl.Workbook()
         ws = wb.active
-        ws.append(["datetime","temperature","humidity","wind_speed","rainfall","light_lux","crc_status","wind_direction"])
+        ws.append(["datetime","temperature","humidity","wind_speed","rainfall","light_lux","crc_status","wind_direction","uv","uvi"])
 
     existing = set()
     for row in ws.iter_rows(min_row=2, values_only=True):
