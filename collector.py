@@ -4,6 +4,10 @@ import openpyxl
 TXT_PATH = r"C:\Users\sejae\Desktop\웨더게이트 소프트웨어\WH-2300S PC소프트웨어 25.03 (유저용)\WH-2300S 관련 User 제공자료\WH-2300S display software\WH24Data.txt"
 XLSX_PATH = r"C:\Users\sejae\Desktop\sensor_log.xlsx"
 
+# rain(raw)은 강수 센서의 누적 tip 카운터. WH24가 Fine Offset 7-in-1 계열이고
+# 동계열 모델의 공식 강수 스텝이 0.3mm/tip으로 확인되어(2026-08-18), raw*RAIN_MM_PER_TICK = mm(누적).
+RAIN_MM_PER_TICK = 0.3
+
 def parse_line(line):
     try:
         parts = line.strip().split(",")
@@ -25,13 +29,15 @@ def parse_line(line):
             if "CRC" in part or "ERROR" in part:
                 crc = "ERROR"
                 break
-        return [dt, float(temp), float(humidity), float(wind), float(rain), float(lux), crc, float(wind_dir), float(uv), float(uvi)]
+        rain_val = float(rain)
+        rain_mm = round(rain_val * RAIN_MM_PER_TICK, 1)
+        return [dt, float(temp), float(humidity), float(wind), rain_val, float(lux), crc, float(wind_dir), float(uv), float(uvi), rain_mm]
     except:
         return None
 
 def apply_interpolation(ws):
     max_row = ws.max_row
-    data_cols = [2, 3, 4, 5, 6, 8, 9, 10]  # temperature, humidity, wind_speed, rainfall, light_lux, wind_direction, uv, uvi (7=crc_status 제외)
+    data_cols = [2, 3, 4, 5, 6, 8, 9, 10, 11]  # temperature, humidity, wind_speed, rainfall, light_lux, wind_direction, uv, uvi, rainfall_mm (7=crc_status 제외)
     for row_idx in range(2, max_row + 1):
         crc = ws.cell(row=row_idx, column=7).value
         if crc == "ERROR":
@@ -59,14 +65,14 @@ def main():
         if len(header) >= 7 and not header[6]:
             ws.cell(row=1, column=7, value="crc_status")
             header[6] = "crc_status"
-        for col_name in ("wind_direction", "uv", "uvi"):
+        for col_name in ("wind_direction", "uv", "uvi", "rainfall_mm"):
             if col_name not in header:
                 ws.cell(row=1, column=len(header) + 1, value=col_name)
                 header.append(col_name)
     else:
         wb = openpyxl.Workbook()
         ws = wb.active
-        ws.append(["datetime","temperature","humidity","wind_speed","rainfall","light_lux","crc_status","wind_direction","uv","uvi"])
+        ws.append(["datetime","temperature","humidity","wind_speed","rainfall","light_lux","crc_status","wind_direction","uv","uvi","rainfall_mm"])
 
     existing = set()
     for row in ws.iter_rows(min_row=2, values_only=True):
