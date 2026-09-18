@@ -1,6 +1,7 @@
+import bisect
 import os
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import openpyxl
 
@@ -78,6 +79,13 @@ def _release_lock():
 # 동계열 모델의 공식 강수 스텝이 0.3mm/tip으로 확인되어(2026-08-18), raw*RAIN_MM_PER_TICK = mm(누적).
 RAIN_MM_PER_TICK = 0.3
 
+# 일사량 센서(vctec P000BDFU)는 solar_collector.py가 5분 주기로 별도 파일에 쌓는다.
+# 여기서는 그 값을 타임스탬프로 맞춰 sensor_log.xlsx에 합치기만 한다.
+# 파일이 없으면(=센서 미연결) 아래 로직은 전부 no-op이다.
+SOLAR_XLSX_PATH = r"C:\Users\sejae\Desktop\solar_log.xlsx"
+# 일사량 폴링 주기(5분)의 절반보다 크게 잡아 모든 행이 가장 가까운 표본을 갖도록 한다.
+SOLAR_MATCH_TOLERANCE_SEC = 300
+
 def parse_line(line):
     try:
         parts = line.strip().split(",")
@@ -125,6 +133,94 @@ def apply_interpolation(ws):
                 elif next_val is not None:
                     ws.cell(row=row_idx, column=col).value = next_val
 
+def _parse_dt(value):
+    """엑셀 셀의 시각 값을 datetime으로. WH24 로그는 "2026-04-23 1:49:17"처럼
+    시각이 0으로 패딩되지 않는 경우가 있는데 strptime의 %H가 이를 받아준다."""
+    if isinstance(value, datetime):
+        return value
+    text = str(value).strip()
+    for fmt in ("%Y-%m-%d %H:%M:%S", "%Y/%m/%d %H:%M:%S", "%Y-%m-%d %H:%M"):
+        try:
+            return datetime.strptime(text, fmt)
+        except ValueError:
+            continue
+    return None
+
+
+def _load_solar_samples():
+    """solar_log.xlsx에서 (시각, 일사량)을 시간순으로 읽는다.
+    파일이 없거나(센서 미연결) 열리지 않으면 빈 리스트 -> 병합 전체가 no-op."""
+    if not os.path.exists(SOLAR_XLSX_PATH):
+        return []
+    try:
+        wb = openpyxl.load_workbook(SOLAR_XLSX_PATH, read_only=True, data_only=True)
+    except Exception:
+        # 5분 주기 작업이 저장 중이면 잠겨 있을 수 있다. 다음 실행 때 합치면 된다.
+        return []
+
+    samples = []
+    try:
+        ws = wb.active
+        for row in ws.iter_rows(min_row=2, values_only=True):
+            if not row or len(row) < 2 or row[0] is None or row[1] is None:
+                continue
+            ts = _parse_dt(row[0])
+            if ts is None:
+                continue
+            try:
+                samples.append((ts, float(row[1])))
+            except (TypeError, ValueError):
+                continue
+    finally:
+        wb.close()
+
+    samples.sort(key=lambda item: item[0])
+    return samples
+
+
+def _nearest_value(times, samples, ts):
+    """ts에 가장 가까운 표본값. 허용 오차를 벗어나면 None."""
+    pos = bisect.bisect_left(times, ts)
+    best = None
+    for i in (pos - 1, pos):
+        if 0 <= i < len(samples):
+            gap = abs((samples[i][0] - ts).total_seconds())
+            if gap <= SOLAR_MATCH_TOLERANCE_SEC and (best is None or gap < best[0]):
+                best = (gap, samples[i][1])
+    return best[1] if best else None
+
+
+def merge_solar(ws, header):
+    """각 행의 시각에 가장 가까운 일사량을 solar_radiation_wm2 컬럼에 채운다.
+
+    - 이미 값이 있는 행은 건드리지 않는다 (몇 번 재실행해도 안전)
+    - 일사량 로그 시작 이전의 과거 행은 채울 값이 없으므로, 아래에서 위로
+      훑다가 그 지점에서 멈춘다 (22만 행 전체를 매번 훑지 않기 위해)
+    """
+    samples = _load_solar_samples()
+    if not samples or "solar_radiation_wm2" not in header:
+        return 0
+
+    col = header.index("solar_radiation_wm2") + 1
+    times = [item[0] for item in samples]
+    earliest = times[0] - timedelta(seconds=SOLAR_MATCH_TOLERANCE_SEC)
+
+    filled = 0
+    for row_idx in range(ws.max_row, 1, -1):
+        ts = _parse_dt(ws.cell(row=row_idx, column=1).value)
+        if ts is None:
+            continue
+        if ts < earliest:
+            break
+        if ws.cell(row=row_idx, column=col).value is not None:
+            continue
+        value = _nearest_value(times, samples, ts)
+        if value is not None:
+            ws.cell(row=row_idx, column=col).value = value
+            filled += 1
+    return filled
+
+
 def main():
     if not _acquire_lock():
         return  # 다른 실행이 아직 sensor_log.xlsx를 쓰는 중 - 이번 주기는 건너뛴다
@@ -138,14 +234,15 @@ def main():
             if len(header) >= 7 and not header[6]:
                 ws.cell(row=1, column=7, value="crc_status")
                 header[6] = "crc_status"
-            for col_name in ("wind_direction", "uv", "uvi", "rainfall_mm"):
+            for col_name in ("wind_direction", "uv", "uvi", "rainfall_mm", "solar_radiation_wm2"):
                 if col_name not in header:
                     ws.cell(row=1, column=len(header) + 1, value=col_name)
                     header.append(col_name)
         else:
             wb = openpyxl.Workbook()
             ws = wb.active
-            ws.append(["datetime","temperature","humidity","wind_speed","rainfall","light_lux","crc_status","wind_direction","uv","uvi","rainfall_mm"])
+            header = ["datetime","temperature","humidity","wind_speed","rainfall","light_lux","crc_status","wind_direction","uv","uvi","rainfall_mm","solar_radiation_wm2"]
+            ws.append(header)
 
         existing = set()
         for row in ws.iter_rows(min_row=2, values_only=True):
@@ -164,8 +261,9 @@ def main():
                     new_count += 1
 
         apply_interpolation(ws)
+        solar_filled = merge_solar(ws, header)
         wb.save(XLSX_PATH)
-        print(f"완료! 새로 추가된 데이터: {new_count}개")
+        print(f"완료! 새로 추가된 데이터: {new_count}개, 일사량 병합: {solar_filled}개")
     finally:
         _release_lock()
 
