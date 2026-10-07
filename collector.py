@@ -1,6 +1,7 @@
 import bisect
 import os
 import time
+import zipfile
 from datetime import datetime, timedelta
 
 import openpyxl
@@ -66,6 +67,31 @@ def _acquire_lock():
             print(f"[lock] sensor_log.xlsx 사용 중(보유자: {_read_lock_holder()}, age={age:.0f}s)"
                   f" - {LOCK_POLL_INTERVAL}초 후 재시도 (pid={os.getpid()} 대기)")
             time.sleep(LOCK_POLL_INTERVAL)
+
+
+# 2026-10-07: 10:47 실행에서 wb.save 도중 예외(메모리 부족 추정)가 나 sensor_log.xlsx가 시트 없이
+# 2KB짜리로 덮어써지고 그대로 push된 사고가 있었다. 원본에 직접 저장하지 않고 같은 폴더의 임시 파일에
+# 저장 -> zip 항목 검증 -> os.replace로 교체한다. 실패하면 원본은 그대로 두고 비정상 종료(exit 1).
+TMP_PATH = XLSX_PATH + ".tmp"
+REQUIRED_ENTRIES = ("[Content_Types].xml", "xl/worksheets/sheet1.xml")
+
+
+def _safe_save(wb):
+    try:
+        wb.save(TMP_PATH)
+        with zipfile.ZipFile(TMP_PATH) as z:
+            names = set(z.namelist())
+        missing = [n for n in REQUIRED_ENTRIES if n not in names]
+        if missing:
+            raise RuntimeError(f"임시 파일 검증 실패 - 누락 항목: {missing}")
+        os.replace(TMP_PATH, XLSX_PATH)
+    except BaseException as e:  # MemoryError 등 포함
+        print(f"[save] 저장 실패({type(e).__name__}: {e}) - 원본은 그대로 두고 임시 파일 삭제 후 종료")
+        try:
+            os.remove(TMP_PATH)
+        except OSError:
+            pass
+        raise SystemExit(1)
 
 
 def _release_lock():
@@ -262,7 +288,7 @@ def main():
 
         apply_interpolation(ws)
         solar_filled = merge_solar(ws, header)
-        wb.save(XLSX_PATH)
+        _safe_save(wb)
         print(f"완료! 새로 추가된 데이터: {new_count}개, 일사량 병합: {solar_filled}개")
     finally:
         _release_lock()
