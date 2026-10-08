@@ -27,6 +27,10 @@ class DBHandler:
 
     # ── 연결 ────────────────────────────────────────
     def _connect(self, use_db: bool = True):
+        if not DB_PASSWORD:
+            raise RuntimeError(
+                "DB_PASSWORD 환경변수가 설정되지 않았습니다. DB 접속 전에 DB_PASSWORD를 설정하세요."
+            )
         params = dict(self.conn_params)
         if use_db:
             params["database"] = DB_NAME
