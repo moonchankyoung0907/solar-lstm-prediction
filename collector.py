@@ -19,6 +19,12 @@ LOCK_WAIT_SECONDS = 60    # 락 대기 최대 시간 - 이 안에 못 얻으면 
 LOCK_POLL_INTERVAL = 2
 
 
+def _log(msg):
+    """단계별 시각을 남긴다 - auto_push.log에서 UART Display 크래시 시각과 대조하기 위함(2026-10-08)."""
+    now = datetime.now()
+    print(f"[{now:%Y-%m-%d %H:%M:%S}.{now.microsecond // 1000:03d}] [collector] {msg}", flush=True)
+
+
 def _read_lock_holder():
     """락을 잡고 있는 쪽이 누구인지(pid/시작시각) 로그용으로 읽어온다 - 실패해도 조용히 넘어간다."""
     try:
@@ -43,7 +49,7 @@ def _acquire_lock():
             fd = os.open(LOCK_PATH, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
             with os.fdopen(fd, "w", encoding="utf-8") as f:
                 f.write(f"pid={os.getpid()} started={datetime.now().isoformat(timespec='seconds')}\n")
-            print(f"[lock] 락 획득 성공 (pid={os.getpid()})")
+            _log(f"[lock] 락 획득 성공 (pid={os.getpid()})")
             return True
         except FileExistsError:
             try:
@@ -78,6 +84,7 @@ REQUIRED_ENTRIES = ("[Content_Types].xml", "xl/worksheets/sheet1.xml")
 
 def _safe_save(wb):
     try:
+        _log("저장 시작")
         wb.save(TMP_PATH)
         with zipfile.ZipFile(TMP_PATH) as z:
             names = set(z.namelist())
@@ -85,6 +92,7 @@ def _safe_save(wb):
         if missing:
             raise RuntimeError(f"임시 파일 검증 실패 - 누락 항목: {missing}")
         os.replace(TMP_PATH, XLSX_PATH)
+        _log("저장 완료")
     except BaseException as e:  # MemoryError 등 포함
         print(f"[save] 저장 실패({type(e).__name__}: {e}) - 원본은 그대로 두고 임시 파일 삭제 후 종료")
         try:
@@ -216,6 +224,59 @@ def _nearest_value(times, samples, ts):
     return best[1] if best else None
 
 
+# 2026-10-08: WH24 UART Display가 이 스크립트 실행 1~2분 뒤(=WH24Data.txt 전체 읽기 구간 추정)에
+# 0xc0000417로 반복 크래시. txt를 통째로 오래 열어두지 않도록, 파일 끝에서 필요한 만큼만 바이트로
+# 한 번에 읽고 즉시 닫은 뒤 메모리에서 파싱한다. 필요한 구간까지 못 거슬러 가면 기존 전체 읽기로 폴백.
+TAIL_LOOKBACK = timedelta(days=3)         # 기본: 최근 3일치는 항상 다시 훑는다(중복은 existing으로 걸러짐)
+TAIL_MARGIN = timedelta(hours=1)          # sensor_log 마지막 행 시각 이전 여유
+TAIL_INITIAL_BYTES = 4 * 1024 * 1024      # 16초 간격 약 160B/줄 기준 4~5일치
+TAIL_MAX_BYTES = 32 * 1024 * 1024         # 이만큼 거슬러도 기준 시각에 못 닿으면 전체 읽기로 폴백
+
+
+def _last_row_dt(ws, scan=100):
+    """sensor_log 마지막 scan개 행 중 가장 늦은 시각(정렬이 살짝 어긋나 있어도 안전하게)."""
+    best = None
+    for row_idx in range(ws.max_row, max(1, ws.max_row - scan), -1):
+        ts = _parse_dt(ws.cell(row=row_idx, column=1).value)
+        if ts is not None and (best is None or ts > best):
+            best = ts
+    return best
+
+
+def _read_txt_tail(cutoff):
+    """WH24Data.txt 끝에서부터 cutoff 이전 시각이 포함될 때까지 거슬러 읽어 줄 목록을 돌려준다.
+    TAIL_MAX_BYTES 안에서 cutoff에 못 닿으면 None(호출 측이 전체 읽기로 폴백)."""
+    size = TAIL_INITIAL_BYTES
+    while True:
+        _log(f"txt 열기 (tail {size // 1024}KB)")
+        with open(TXT_PATH, "rb") as f:
+            f.seek(0, os.SEEK_END)
+            file_size = f.tell()
+            start = max(0, file_size - size)
+            f.seek(start)
+            raw = f.read()
+        _log(f"txt 닫기 (파일 {file_size}B 중 offset {start}부터 {len(raw)}B 읽음)")
+
+        if start > 0:
+            # 중간에서 시작했으니 첫 줄(멀티바이트 문자 중간일 수도 있음)은 버린다
+            nl = raw.find(b"\n")
+            raw = raw[nl + 1:] if nl >= 0 else b""
+        # 텍스트 모드 for line in f(universal newlines)와 같은 기준으로 줄을 나눈다
+        lines = raw.decode("cp949", errors="ignore").replace("\r\n", "\n").replace("\r", "\n").split("\n")
+        # 마지막 원소는 개행 뒤 빈 문자열이거나, UART가 아직 쓰는 중인 미완성 줄 -> 다음 실행에서 읽는다
+        lines = lines[:-1]
+
+        if start == 0:
+            return lines  # 파일 전체가 들어왔다
+        first = next((_parse_dt(r[0]) for r in map(parse_line, lines) if r), None)
+        if first is not None and first <= cutoff:
+            return lines
+        if size >= TAIL_MAX_BYTES:
+            _log(f"tail {size // 1024}KB로 기준 시각({cutoff})까지 못 닿음(첫 행 {first}) - 전체 읽기로 폴백")
+            return None
+        size *= 2
+
+
 def merge_solar(ws, header):
     """각 행의 시각에 가장 가까운 일사량을 solar_radiation_wm2 컬럼에 채운다.
 
@@ -270,21 +331,46 @@ def main():
             header = ["datetime","temperature","humidity","wind_speed","rainfall","light_lux","crc_status","wind_direction","uv","uvi","rainfall_mm","solar_radiation_wm2"]
             ws.append(header)
 
+        _log(f"xlsx 로드 완료 (max_row={ws.max_row})")
+
         existing = set()
         for row in ws.iter_rows(min_row=2, values_only=True):
             if row[0]:
                 existing.add(str(row[0]))
 
+        last_dt = _last_row_dt(ws)
+        lines = None
+        if last_dt is not None:
+            cutoff = min(datetime.now() - TAIL_LOOKBACK, last_dt - TAIL_MARGIN)
+            lines = _read_txt_tail(cutoff)
+        else:
+            _log("sensor_log 마지막 행 시각을 알 수 없음 - 전체 읽기")
+
+        def _add(line):
+            if line.strip() == "":
+                return 0
+            row = parse_line(line)
+            if row and str(row[0]) not in existing:
+                ws.append(row)
+                existing.add(str(row[0]))
+                return 1
+            return 0
+
         new_count = 0
-        with open(TXT_PATH, "r", encoding="cp949", errors="ignore") as f:
-            for line in f:
-                if line.strip() == "":
-                    continue
-                row = parse_line(line)
-                if row and str(row[0]) not in existing:
-                    ws.append(row)
-                    existing.add(str(row[0]))
-                    new_count += 1
+        if lines is not None:
+            for line in lines:
+                new_count += _add(line)
+            read_lines = len(lines)
+        else:
+            # 폴백: 기존 방식 그대로(파일 전체를 줄 단위로 읽음)
+            _log("txt 열기 (전체)")
+            read_lines = 0
+            with open(TXT_PATH, "r", encoding="cp949", errors="ignore") as f:
+                for line in f:
+                    read_lines += 1
+                    new_count += _add(line)
+            _log("txt 닫기 (전체)")
+        _log(f"txt 읽은 줄 {read_lines}, 새 행 {new_count}")
 
         apply_interpolation(ws)
         solar_filled = merge_solar(ws, header)
