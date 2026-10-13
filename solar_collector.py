@@ -10,23 +10,42 @@ sensor_log.xlsx를 직접 건드리지 않고 별도 파일에 쌓는 이유:
   → 여기서는 원본만 쌓고, collector.py가 실행될 때 타임스탬프를 맞춰
     sensor_log.xlsx의 solar_radiation_wm2 컬럼으로 합친다.
 
+콘솔에는 아무것도 쓰지 않는다. 작업 스케줄러가 띄운 콘솔 창이 빠른 편집(선택) 상태가 되면
+print()가 막혀 프로세스가 끝나지 않는다(2026-10-08 InverterCollector 72시간 정지 추정 원인).
+결과/예외는 tmp\solar_collector.log에 한 줄씩 남긴다(1MB 넘으면 .1로 회전).
+
 스케줄러 등록(포트 확정 후 1회만):
   schtasks /Create /TN SolarCollector /SC MINUTE /MO 5 ^
     /TR "C:\Users\sejae\AppData\Local\Programs\Python\Python311\python.exe C:\Users\sejae\Desktop\solar_collector.py"
 """
 
 import os
+import sys
+import time
+import traceback
 from datetime import datetime
 
-import openpyxl
-
-from solar_reader import read_solar_once
-
 XLSX_PATH = r"C:\Users\sejae\Desktop\solar_log.xlsx"
+LOG_PATH = r"C:\Users\sejae\Desktop\tmp\solar_collector.log"
+LOG_MAX_BYTES = 1024 * 1024
 HEADER = ["datetime", "solar_radiation_wm2", "comm_status"]
 
 
+def _log(msg):
+    try:
+        if os.path.exists(LOG_PATH) and os.path.getsize(LOG_PATH) > LOG_MAX_BYTES:
+            os.replace(LOG_PATH, LOG_PATH + ".1")
+        with open(LOG_PATH, "a", encoding="utf-8") as f:
+            f.write(f"{datetime.now():%Y-%m-%d %H:%M:%S} pid={os.getpid()} {msg}\n")
+    except OSError:
+        pass
+
+
 def main():
+    import openpyxl
+
+    from solar_reader import read_solar_once
+
     if os.path.exists(XLSX_PATH):
         wb = openpyxl.load_workbook(XLSX_PATH)
         ws = wb.active
@@ -45,8 +64,17 @@ def main():
     ws.append(row)
 
     wb.save(XLSX_PATH)
-    print(f"{row[0]} - {row[1]} W/m² - {row[2]}")
+    return f"{row[2]} {row[1]}W/m2"
 
 
 if __name__ == "__main__":
-    main()
+    # 라이브러리 경고 등 어떤 출력도 콘솔로 가지 않게 막는다.
+    sys.stdout = sys.stderr = open(os.devnull, "w")
+    t0 = time.monotonic()
+    try:
+        status = main()
+    except BaseException as e:
+        _log(f"ERROR {time.monotonic() - t0:.1f}s {type(e).__name__}: {e}")
+        _log("TRACEBACK " + traceback.format_exc().replace("\n", " | "))
+        os._exit(1)
+    _log(f"{status} {time.monotonic() - t0:.1f}s")
