@@ -1,5 +1,4 @@
 datetime,grid_voltage_v,pv1_current_a,pv2_current_a,pv3_current_a,pv4_voltage_v,pv4_current_a,cumulative_energy_kwh,comm_status
-2026-10-31 19:37:35,,,,,,,,NO_RESPONSE
 2026-10-31 19:42:37,,,,,,,,NO_RESPONSE
 2026-10-31 19:47:35,,,,,,,,NO_RESPONSE
 2026-10-31 19:52:35,,,,,,,,NO_RESPONSE
@@ -23,3 +22,4 @@ datetime,grid_voltage_v,pv1_current_a,pv2_current_a,pv3_current_a,pv4_voltage_v,
 2026-10-31 21:22:35,,,,,,,,NO_RESPONSE
 2026-10-31 21:27:35,,,,,,,,NO_RESPONSE
 2026-10-31 21:32:35,,,,,,,,NO_RESPONSE
+2026-10-31 21:37:35,,,,,,,,NO_RESPONSE
